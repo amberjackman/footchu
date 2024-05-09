@@ -62,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>축구화 추천</h1>
+      <h1>FUTCHU</h1>
       {recommendation ? (
         <div className="recommendation">
           {typeof recommendation === "string" ? (

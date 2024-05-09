@@ -26,7 +26,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
           shoeValue.includes("Synthetic leather")) ||
         (answerValue === "천연 가죽" && shoeValue.includes("Real leather"))
       ) {
-        score += 2;
+        score += 1;
       }
     } else if (question.key === "type") {
       if (
@@ -34,7 +34,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         (answerValue === "터치,컨트롤" && shoeValue === "Control") ||
         (answerValue === "착화감" && shoeValue === "Comport")
       ) {
-        score += 3;
+        score += 1;
       }
     }
   });
@@ -76,7 +76,7 @@ function App() {
     if (currentQuestion < currentQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      setShowModal(true); // "찾는 중..." 모달 표시
+      setShowModal(true);
 
       setTimeout(() => {
         const topMatches = findTopMatches(answers, currentQuestions);
@@ -91,12 +91,12 @@ function App() {
     setAnswers({});
     setRecommendations([]);
     setCurrentQuestion(0);
-    setIsQuizStarted(false); // 랜딩 페이지로 돌아가기
+    setIsQuizStarted(false);
   };
 
   const handleStartQuiz = () => {
     setIsQuizStarted(true);
-    // Ensure the questions are set based on the current mode
+
     setCurrentQuestions(isAdvancedMode ? advancedQuestions : questions);
     setCurrentQuestion(0);
   };
@@ -115,7 +115,6 @@ function App() {
     reset: true,
     reverse: toggle,
     onRest: () => {
-      // 애니메이션 완료 후 필요한 상태 업데이트
       setToggle(false);
     },
   });
@@ -127,12 +126,16 @@ function App() {
         <ul>
           <li>
             <strong>TF모델을 기본으로 상정합니다</strong> <br />
-            해당 모델이 한국의 인조잔디에서도 사용 가능 한 스터드가 존재하는
-            경우 또는
             <br />
-            기존 스터드 모델과 큰 차이가 있을 경우 결과창의 설명란에서 확인하실
-            수 있습니다
+            TF모델과 스터드모델의 큰 차이가 있을 경우
+            <br /> 결과창의 설명란에서 확인하실 수 있습니다
           </li>
+          {/* <li>
+            <strong>해당 모델의 출시된 최신버전을 기준으로 비교합니다</strong>
+            <br />
+            예를들어, 베이퍼의 경우 15버전을 기준으로 비교합니다
+            <br />
+          </li> */}
           <li>
             <del>
               본인의 실측 발 길이,너비를 아시는 경우 ADVANCED 모드를 추천합니다
@@ -167,7 +170,7 @@ function App() {
   return (
     <div className="App">
       <Modal show={showModal}>
-        <h2>찾는 중...</h2>
+        <h2>결과 값 계산 중..</h2>
       </Modal>
       <h1>FOOTCHU</h1>
       {recommendations.length > 0 ? (

@@ -9,7 +9,7 @@ export const shoes = [
     type: "Speed",
     material: "Knit",
     description:
-      "나이키 머큐리얼은 나이키의 스피드 사일로이자, 니트와 합성가죽이 결합된 축구화 입니다. 고원바보",
+      "나이키 머큐리얼은 나이키의 스피드 사일로이자, 니트와 합성가죽이 결합된 축구화 입니다. ",
     link: "",
   },
   {

@@ -8,8 +8,8 @@ import "./App.css";
 const calculateScore = (shoe, answers) => {
   let score = 0;
   if (shoe.type === answers.type) score += 1;
-  if (shoe.ground === answers.ground) score += 1;
-  if (shoe.priceRange === answers.priceRange) score += 1;
+  if (shoe.material === answers.material) score += 1;
+  if (shoe.brand === answers.brand) score += 1;
   return score;
 };
 

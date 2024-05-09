@@ -8,7 +8,35 @@ import "./App.css";
 const calculateScore = (shoe, answers, currentQuestions) => {
   let score = 0;
   currentQuestions.forEach((question) => {
-    if (shoe[question.key] === answers[question.key]) score += 1;
+    const answerValue = answers[question.key];
+    const shoeValue = shoe[question.key];
+
+    if (question.key === "brand") {
+      if (
+        (answerValue === "기타" && shoeValue === "ETC") ||
+        answerValue === "상관없음" ||
+        shoeValue === answerValue
+      ) {
+        score += 1;
+      }
+    } else if (question.key === "material") {
+      if (
+        (answerValue === "니트" && shoeValue.includes("Knit")) ||
+        (answerValue === "인조 가죽" &&
+          shoeValue.includes("Synthetic leather")) ||
+        (answerValue === "천연 가죽" && shoeValue.includes("Real leather"))
+      ) {
+        score += 2;
+      }
+    } else if (question.key === "type") {
+      if (
+        (answerValue === "경량" && shoeValue === "Speed") ||
+        (answerValue === "터치,컨트롤" && shoeValue === "Control") ||
+        (answerValue === "착화감" && shoeValue === "Comport")
+      ) {
+        score += 3;
+      }
+    }
   });
   return score;
 };
@@ -95,31 +123,37 @@ function App() {
   if (!isQuizStarted) {
     return (
       <div className="App landing">
-        <h1>축구화 추천은 FOOTCHU</h1>
+        <h1>FOOTCHU</h1>
         <ul>
           <li>
             <strong>TF모델을 기본으로 상정합니다</strong> <br />
             해당 모델이 한국의 인조잔디에서도 사용 가능 한 스터드가 존재하는
-            경우 결과창의 설명란에서 확인하실 수 있습니다
+            경우 또는
+            <br />
+            기존 스터드 모델과 큰 차이가 있을 경우 결과창의 설명란에서 확인하실
+            수 있습니다
           </li>
           <li>
-            <strong>
+            <del>
               본인의 실측 발 길이,너비를 아시는 경우 ADVANCED 모드를 추천합니다
-            </strong>
+            </del>
           </li>
         </ul>
         <div className="toggle-container">
           <label className="toggle-label">
-            ADVANCED MODE
+            <del>ADVANCED MODE</del> - COMING SOON
             <input
               type="checkbox"
+              disabled={true}
+              cursor="disable"
               checked={isAdvancedMode}
               onChange={() => setIsAdvancedMode(!isAdvancedMode)}
               className="toggle-checkbox"
             />
-            <span className="toggle-switch"></span>
+            <span className="toggle-switch"> </span>
           </label>
         </div>
+
         <button
           onClick={handleStartQuiz}
           className={`start-button ${isAdvancedMode ? "advanced-mode" : ""}`}
@@ -147,16 +181,7 @@ function App() {
               <p>{shoe.description}</p>
             </div>
           ))}
-          <button
-            onClick={() => {
-              setIsQuizStarted(false); // 퀴즈 재시작을 위한 상태 업데이트 없음
-              setCurrentQuestion(0); // 상태 초기화
-              setAnswers({});
-              setRecommendations([]);
-            }}
-          >
-            다시 시작하기
-          </button>
+          <button onClick={handleRestart}>다시 시작하기</button>
         </div>
       ) : (
         <animated.div style={slideIn} className="question-card">

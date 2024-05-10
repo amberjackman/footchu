@@ -12,12 +12,16 @@ const calculateScore = (shoe, answers, currentQuestions) => {
     const shoeValue = shoe[question.key];
 
     if (question.key === "brand") {
-      if (
-        (answerValue === "기타" && shoeValue === "ETC") ||
-        answerValue === "상관없음" ||
-        shoeValue === answerValue
-      ) {
-        score += 1;
+      if (answerValue === "상관없음") {
+        score += 0;
+      } else if (answerValue === "기타") {
+        if (shoeValue === "ETC") {
+          score += 1;
+        }
+      } else {
+        if (shoeValue === answerValue) {
+          score += 1;
+        }
       }
     } else if (question.key === "material") {
       if (
@@ -33,6 +37,16 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         (answerValue === "경량" && shoeValue === "Speed") ||
         (answerValue === "터치,컨트롤" && shoeValue === "Control") ||
         (answerValue === "착화감" && shoeValue === "Comport")
+      ) {
+        score += 1;
+      }
+    } else if (question.key === "midsole") {
+      if (answerValue === "상관없음" || shoeValue === null) {
+        score += 0;
+      } else if (
+        (answerValue === "단단" && shoeValue === "hard") ||
+        (answerValue === "푹신" && shoeValue === "soft") ||
+        (answerValue === "중간" && shoeValue === "mid")
       ) {
         score += 1;
       }
@@ -101,6 +115,10 @@ function App() {
     setCurrentQuestion(0);
   };
 
+  const handleLogoClick = () => {
+    handleRestart(); // 이 함수를 호출하여 퀴즈를 초기화합니다.
+  };
+
   useEffect(
     () => {
       setCurrentQuestions(isAdvancedMode ? advancedQuestions : questions);
@@ -122,7 +140,9 @@ function App() {
   if (!isQuizStarted) {
     return (
       <div className="App landing">
-        <h1>FOOTCHU</h1>
+        <h1 onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+          FOOTCHU
+        </h1>
         <ul>
           <li>
             <strong>TF모델을 기본으로 상정합니다</strong> <br />
@@ -130,12 +150,6 @@ function App() {
             TF모델과 스터드모델의 큰 차이가 있을 경우
             <br /> 결과창의 설명란에서 확인하실 수 있습니다
           </li>
-          {/* <li>
-            <strong>해당 모델의 출시된 최신버전을 기준으로 비교합니다</strong>
-            <br />
-            예를들어, 베이퍼의 경우 15버전을 기준으로 비교합니다
-            <br />
-          </li> */}
           <li>
             <del>
               본인의 실측 발 길이,너비를 아시는 경우 ADVANCED 모드를 추천합니다
@@ -172,7 +186,9 @@ function App() {
       <Modal show={showModal}>
         <h2>결과 값 계산 중..</h2>
       </Modal>
-      <h1>FOOTCHU</h1>
+      <h1 onClick={handleLogoClick} style={{ cursor: "pointer" }}>
+        FOOTCHU
+      </h1>
       {recommendations.length > 0 ? (
         <div className="recommendations">
           <h2>RESULT</h2>

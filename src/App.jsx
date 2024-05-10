@@ -80,7 +80,7 @@ function App({ shoe }) {
   const [animation, setAnimation] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const excludedKeys = ["id"];
+  const excludedKeys = ["id", "link", "name"];
 
   const handleOptionClick = (key, value) => {
     setAnswers((prev) => ({
@@ -117,7 +117,7 @@ function App({ shoe }) {
   };
 
   const handleLogoClick = () => {
-    handleRestart(); // 이 함수를 호출하여 퀴즈를 초기화합니다.
+    handleRestart();
   };
 
   useEffect(
@@ -178,6 +178,7 @@ function App({ shoe }) {
         >
           추천받기 {isAdvancedMode ? "🔥" : ""}
         </button>
+        <div className="contact-container">footchu.contact@gmail.com</div>
       </div>
     );
   }

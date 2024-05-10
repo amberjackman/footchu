@@ -69,7 +69,7 @@ const findTopMatches = (answers, currentQuestions, topN = 3) => {
   return scoredShoes.slice(0, topN).map((entry) => entry.shoe);
 };
 
-function App() {
+function App({ shoe }) {
   const [answers, setAnswers] = useState({});
   const [recommendations, setRecommendations] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -80,6 +80,7 @@ function App() {
   const [animation, setAnimation] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const excludedKeys = ["id"];
 
   const handleOptionClick = (key, value) => {
     setAnswers((prev) => ({
@@ -194,10 +195,30 @@ function App() {
           <h2>RESULT</h2>
           {recommendations.map((shoe, index) => (
             <div key={index} className="recommendation">
-              <h3>
-                {index + 1}위: {shoe.name}
-              </h3>
-              <p>{shoe.description}</p>
+              <h3>{index + 1}위</h3>
+              <div>
+                <h2>{shoe.name}</h2>
+                <ul>
+                  {Object.entries(shoe)
+                    .filter(([key]) => !excludedKeys.includes(key))
+                    .map(([key, value]) => (
+                      <li key={key}>
+                        <strong>{key}:</strong>{" "}
+                        {key === "link" ? (
+                          <a
+                            href={value}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {value}
+                          </a>
+                        ) : (
+                          value
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              </div>
             </div>
           ))}
           <button onClick={handleRestart}>다시 시작하기</button>

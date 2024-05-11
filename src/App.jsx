@@ -11,9 +11,9 @@ const calculateScore = (shoe, answers, currentQuestions) => {
     const answerValue = answers[question.key];
     const shoeValue = shoe[question.key];
 
-    console.log(`Question: ${question.key}`);
-    console.log(`Answer value: ${answerValue}`);
-    console.log(`Shoe value: ${shoeValue}`);
+    // console.log(`Question: ${question.key}`);
+    // console.log(`Answer value: ${answerValue}`);
+    // console.log(`Shoe value: ${shoeValue}`);
 
     if (question.key === "brand") {
       if (answerValue === "상관 없음") {
@@ -169,8 +169,8 @@ function App({ shoe }) {
     () => {
       setCurrentQuestions(isAdvancedMode ? advancedQuestions : questions);
     },
-    [isAdvancedMode],
-    console.log(isAdvancedMode ? "Advanced mode" : "normal mode")
+    [isAdvancedMode]
+    // console.log(isAdvancedMode ? "Advanced mode" : "normal mode")
   );
 
   const slideIn = useSpring({

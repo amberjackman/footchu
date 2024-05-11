@@ -159,16 +159,15 @@ button:hover {
   margin: 10px 2px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: transform 0.7s;
 }
 
 .start-button:hover {
   background-color: #45a049;
 }
 
-/* 기존 스타트 버튼 스타일 */
 .start-button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -179,7 +178,8 @@ button:hover {
   margin: 10px 2px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s;
+
+  transition: background-color 0.3s, width 0.3s, height 0.3s;
 }
 
 .start-button:hover {
@@ -188,7 +188,8 @@ button:hover {
 
 /* Advanced 모드일 때의 스타트 버튼 스타일 */
 .advanced-mode {
-  background-color: #2196f3; /* Blue */
+  background-color: #2196f3;
+  width: inherit;
 }
 
 .advanced-mode:hover {
@@ -376,6 +377,12 @@ button:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
+}
+
+.footer-container {
+  margin-top: 50px;
+  color: rgba(128, 128, 128, 0.5);
+  font-size: small;
 }
 
 /* 링크 및 기타 요소 스타일 */

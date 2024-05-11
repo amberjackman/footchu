@@ -250,9 +250,11 @@ function App({ shoe }) {
           onClick={handleStartQuiz}
           className={`start-button ${isAdvancedMode ? "advanced-mode" : ""}`}
         >
-          추천받기 {isAdvancedMode ? "🔥" : ""}
+          추천받기
+          {/* {isAdvancedMode ? "🔥" : ""} */}
         </button>
-        <div className="contact-container">
+
+        <div className="footer-container">
           문의사항, 수정사항 🙏 footchu.contact@gmail.com
         </div>
       </div>

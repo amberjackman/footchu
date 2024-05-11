@@ -64,7 +64,7 @@ export const shoes = [
     outsole: "hard",
     link: "",
     description:
-      "발 안쪽이 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
+      "내부가 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
   },
   {
     id: 5,
@@ -111,7 +111,7 @@ export const shoes = [
     outsole: "soft",
     link: "",
     description:
-      "천연가죽을 버리고 인조가죽을 택했음에도 좋은 착화감과 터치감을 가지고 있습니다, 의외로 너비가 좁아 주의가 필요합니다",
+      "천연가죽을 포기하고 인조가죽을 택했음에도 좋은 착화감과 터치감을 가지고 있습니다, 의외로 너비가 좁아 주의가 필요합니다",
   },
   {
     id: 8,
@@ -133,17 +133,16 @@ export const shoes = [
     name: "Kelme 2.0",
     brand: "ETC",
     type: "Comport",
-    material: "Real leather,",
+    material: "Real leather",
     cheap: true,
     wide_position: "mid",
-
     frontwide: "mid",
     midwide: "mid",
-    midsole: null,
-    outsole: null,
+    midsole: "mid",
+    outsole: "mid",
     link: "",
     description:
-      "캥거루 가죽을 사용했습니다. 편하고, 가볍고, 무엇보다 가성비가 훌륭합니다 TF모델도,MG모델도 한국의 잔디와 잘 어울리므로 양쪽 전부 추천합니다",
+      "캥거루 가죽을 사용했습니다. 편하고, 가볍고, 가성비가 훌륭합니다 TF모델도,MG모델도 한국의 잔디와 잘 어울리므로 양쪽 전부 추천합니다 국내 정식발매되지 않아 해외구매가 필수입니다.",
   },
   {
     id: 9,
@@ -152,7 +151,6 @@ export const shoes = [
     type: "Speed",
     material: "Knit",
     wide_position: "mid",
-
     frontwide: null,
     midwide: null,
     midsole: "mid",
@@ -169,10 +167,9 @@ export const shoes = [
     material: "Real leather",
     cheap: true,
     wide_position: "mid",
-
     frontwide: "mid",
     midwide: "narrow",
-    midsole: "hard",
+    midsole: "mid",
     outsole: "hard",
     link: "",
     description:
@@ -183,9 +180,8 @@ export const shoes = [
     name: "Adidas CrazyFast",
     brand: "Adidas",
     type: "Speed",
-    material: "Synthetic leather,",
+    material: "Synthetic leather",
     wide_position: "front",
-
     frontwide: "wide",
     midwide: "narrow",
     midsole: "soft",
@@ -198,12 +194,11 @@ export const shoes = [
     name: "Asics Ds-light Pro AG",
     brand: "ETC",
     type: "Comport",
-    material: "Real leather,",
+    material: "Real leather",
     wide_position: "mid",
-
     frontwide: "wide",
     midwide: "mid",
-    midsole: null,
+    midsole: "N/A",
     outsole: "hard",
     link: "",
     description:
@@ -214,7 +209,7 @@ export const shoes = [
     name: "Mizuno Monarcida Neo",
     brand: "ETC",
     type: "Comport",
-    material: "Real leather,",
+    material: "Real leather",
     wide_position: "mid",
     frontwide: "mid",
     midwide: "wide",
@@ -222,10 +217,10 @@ export const shoes = [
     outsole: "soft",
     link: "",
     description:
-      "모렐리아보다 조금 더 와이드한 모나르시다입니다. 발볼이 아주 넓은데 미즈노의 제품이 신고 싶으시다면 추천드립니다.",
+      "모렐리아보다 조금 더 와이드한 모나르시다입니다. 발볼이 넓은데 미즈노의 제품이 신고 싶으시다면 추천드립니다.",
   },
   {
-    id: 13,
+    id: 14,
     name: "Mizuno Alpha",
     brand: "ETC",
     type: "Speed",
@@ -240,14 +235,15 @@ export const shoes = [
       "가볍고 부드럽지만 반발력은 좋은 인조가죽 어퍼를 사용했습니다. 다만 일체형 니트텅으로 볼이 넓고 높다면 추천하지 않습니다",
   },
   {
-    id: 14,
+    id: 15,
     name: "Nike Premier 3",
     brand: "Nike",
     type: "Comport",
     material: "Real leather",
+    cheap: true,
     wide_position: "mid",
-    frontwide: "wide",
-    midwide: "mid",
+    frontwide: "mid",
+    midwide: "wide",
     midsole: "soft",
     outsole: "soft",
     link: "",
@@ -282,33 +278,33 @@ export const questions = [
     options: ["단단", "중간", "푹신", "상관 없음"],
     key: "midsole",
   },
+  {
+    id: 5,
+    question: "가격이 낮은 제품 위주로 찾고 있나요?",
+    options: ["예", "아니오", "상관 없음"],
+    key: "cheap",
+  },
 ];
 
 export const advancedQuestions = [
   ...questions,
   {
-    id: 2,
-    question: "발 최대 너비는 발의 어느 부분 인가요??",
-    options: ["복숭아뼈 부근", "앞꿈치 부근", "부위 별 차이 없음"],
-    key: "wide_position",
+    id: 1,
+    question: "원하는 전족부 너비는 어느정도 인가요???",
+    options: ["넓음", "중간", "좁음", "상관 없음"],
+    key: "frontwide",
   },
   {
-    id: 1,
-    question: "발의 최대 너비가 어떻게 되시나요?",
-    options: ["97mm 이하", "100 +- 3", "103mm 이상"],
-    key: "wide",
+    id: 2,
+    question: "원하는 중족부 너비는 어느정도 인가요???",
+    options: ["넓음", "중간", "좁음", "상관 없음"],
+    key: "midwide",
   },
 
   {
     id: 3,
     question: "원하는 아웃솔의 강도는 어느정도 인가요?",
-    options: ["단단", "중간", "유연"],
+    options: ["단단", "중간", "유연", "상관 없음"],
     key: "outsole",
-  },
-  {
-    id: 6,
-    question: "발볼 너비는 어떻게 되나요?",
-    options: ["좁음 (97mm 이하)", "보통 (100 ± 3mm)", "넓음 (103mm 이상)"],
-    key: "foot_width",
   },
 ];

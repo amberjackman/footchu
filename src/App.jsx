@@ -16,11 +16,11 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         score += 0;
       } else if (answerValue === "기타") {
         if (shoeValue === "ETC") {
-          score += 1;
+          score += 15;
         }
       } else {
         if (shoeValue === answerValue) {
-          score += 1;
+          score += 15;
         }
       }
     } else if (question.key === "material") {
@@ -30,7 +30,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
           shoeValue.includes("Synthetic leather")) ||
         (answerValue === "천연 가죽" && shoeValue.includes("Real leather"))
       ) {
-        score += 1;
+        score += 20;
       }
     } else if (question.key === "type") {
       if (
@@ -38,17 +38,47 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         (answerValue === "터치,컨트롤" && shoeValue === "Control") ||
         (answerValue === "착화감" && shoeValue === "Comport")
       ) {
-        score += 1;
+        score += 15;
       }
     } else if (question.key === "midsole") {
-      if (answerValue === "상관없음" || shoeValue === null) {
+      if (answerValue === "상관없음" || shoeValue === "N/A") {
         score += 0;
       } else if (
         (answerValue === "단단" && shoeValue === "hard") ||
         (answerValue === "푹신" && shoeValue === "soft") ||
         (answerValue === "중간" && shoeValue === "mid")
       ) {
-        score += 1;
+        score += 20;
+      }
+    } else if (question.key === "frontwide") {
+      if (answerValue === "상관없음" || shoeValue === null) {
+        score += 0;
+      } else if (
+        (answerValue === "넓음" && shoeValue === "wide") ||
+        (answerValue === "중간" && shoeValue === "mid") ||
+        (answerValue === "좁음" && shoeValue === "narrow")
+      ) {
+        score += 10;
+      }
+    } else if (question.key === "midwide") {
+      if (answerValue === "상관없음" || shoeValue === null) {
+        score += 0;
+      } else if (
+        (answerValue === "넓음" && shoeValue === "wide") ||
+        (answerValue === "중간" && shoeValue === "mid") ||
+        (answerValue === "좁음" && shoeValue === "narrow")
+      ) {
+        score += 10;
+      }
+    } else if (question.key === "outsole") {
+      if (answerValue === "상관없음" || shoeValue === null) {
+        score += 0;
+      } else if (
+        (answerValue === "단단" && shoeValue === "hard") ||
+        (answerValue === "중간" && shoeValue === "mid") ||
+        (answerValue === "유연" && shoeValue === "soft")
+      ) {
+        score += 5.5;
       }
     }
   });
@@ -66,7 +96,10 @@ const findTopMatches = (answers, currentQuestions, topN = 3) => {
   scoredShoes.sort((a, b) => b.score - a.score);
 
   // 상위 N개 결과 반환
-  return scoredShoes.slice(0, topN).map((entry) => entry.shoe);
+  return scoredShoes.slice(0, topN).map((entry) => ({
+    shoe: entry.shoe,
+    score: entry.score,
+  }));
 };
 
 function App({ shoe }) {
@@ -80,7 +113,14 @@ function App({ shoe }) {
   const [animation, setAnimation] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const excludedKeys = ["id", "link", "name", "brand"];
+  const excludedKeys = [
+    "id",
+    "link",
+    "name",
+    "brand",
+    "cheap",
+    "wide_position",
+  ];
 
   const handleOptionClick = (key, value) => {
     setAnswers((prev) => ({
@@ -152,17 +192,17 @@ function App({ shoe }) {
             <br /> 결과창의 설명란에서 확인하실 수 있습니다
           </li>
           <li>
-            <del>
+            <strong>
               본인의 실측 발 길이,너비를 아시는 경우 ADVANCED 모드를 추천합니다
-            </del>
+            </strong>
           </li>
         </ul>
         <div className="toggle-container">
           <label className="toggle-label">
-            <del>ADVANCED MODE</del> - COMING SOON
+            <p>ADVANCED MODE</p>
             <input
               type="checkbox"
-              disabled={true}
+              // disabled={true}
               cursor="disable"
               checked={isAdvancedMode}
               onChange={() => setIsAdvancedMode(!isAdvancedMode)}
@@ -194,13 +234,14 @@ function App({ shoe }) {
       {recommendations.length > 0 ? (
         <div className="recommendations">
           <h2>RESULT</h2>
-          {recommendations.map((shoe, index) => (
+          {recommendations.map((entry, index) => (
             <div key={index} className="recommendation">
               <h3>{index + 1}위</h3>
               <div>
-                <h2>{shoe.name}</h2>
+                <h2>{entry.shoe.name}</h2>
+                <h2>적합도 : {entry.score}</h2>
                 <ul>
-                  {Object.entries(shoe)
+                  {Object.entries(entry.shoe)
                     .filter(([key]) => !excludedKeys.includes(key))
                     .map(([key, value]) => (
                       <li key={key}>

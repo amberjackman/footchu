@@ -28,7 +28,7 @@ export const shoes = [
 
     frontwide: "narrow",
     midwide: "narrow",
-    midsole: "hard",
+    midsole: "mid",
     outsole: "hard",
     link: "",
     description:
@@ -64,7 +64,7 @@ export const shoes = [
     outsole: "hard",
     link: "",
     description:
-      "발 안쪽이 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전과 TF버전 최상위 모델의 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
+      "발 안쪽이 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
   },
   {
     id: 5,
@@ -74,8 +74,8 @@ export const shoes = [
     material: "Real leather",
     wide_position: "mid",
 
-    frontwide: "mid",
-    midwide: "wide",
+    frontwide: "narrow",
+    midwide: "mid",
     midsole: "hard",
     outsole: "soft",
     link: "",
@@ -159,7 +159,7 @@ export const shoes = [
     outsole: "mid",
     link: "",
     description:
-      "뉴발란스의 러닝화 라인업에 들어가는 Fuelcel쿠션이 들어간 것이 큰 장점입니다",
+      "뉴발란스의 러닝화 라인업에 들어가는 Fuelcel쿠션이 들어간 것이 큰 장점입니다 다만 국내 정식발매되지 않아 해외구매가 필수입니다.",
   },
   {
     id: 10,
@@ -195,7 +195,7 @@ export const shoes = [
   },
   {
     id: 12,
-    name: "Asics ds-light pro AG",
+    name: "Asics Ds-light Pro AG",
     brand: "ETC",
     type: "Comport",
     material: "Real leather,",
@@ -207,7 +207,52 @@ export const shoes = [
     outsole: "hard",
     link: "",
     description:
-      "제조사가 동호인을 위해 제작했다는 축구화, 캥거루가죽, K인조잔디와 어울리는 스터드",
+      "아식스가 동호인을 위해 제작했다는 축구화, 캥거루가죽, K인조잔디와 어울리는 스터드",
+  },
+  {
+    id: 13,
+    name: "Mizuno Monarcida Neo",
+    brand: "ETC",
+    type: "Comport",
+    material: "Real leather,",
+    wide_position: "mid",
+    frontwide: "mid",
+    midwide: "wide",
+    midsole: "hard",
+    outsole: "soft",
+    link: "",
+    description:
+      "모렐리아보다 조금 더 와이드한 모나르시다입니다. 발볼이 아주 넓은데 미즈노의 제품이 신고 싶으시다면 추천드립니다.",
+  },
+  {
+    id: 13,
+    name: "Mizuno Alpha",
+    brand: "ETC",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "mid",
+    frontwide: "narrow",
+    midwide: "narrow",
+    midsole: "hard",
+    outsole: "soft",
+    link: "",
+    description:
+      "가볍고 부드럽지만 반발력은 좋은 인조가죽 어퍼를 사용했습니다. 다만 일체형 니트텅으로 볼이 넓고 높다면 추천하지 않습니다",
+  },
+  {
+    id: 14,
+    name: "Nike Premier 3",
+    brand: "Nike",
+    type: "Comport",
+    material: "Real leather",
+    wide_position: "mid",
+    frontwide: "wide",
+    midwide: "mid",
+    midsole: "soft",
+    outsole: "soft",
+    link: "",
+    description:
+      "가성비 좋은 천연가죽 TF화 입니다. 푹신한 루나론 미드솔과 부드러운 소가죽이 특징입니다.",
   },
 ];
 

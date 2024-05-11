@@ -80,7 +80,7 @@ function App({ shoe }) {
   const [animation, setAnimation] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const excludedKeys = ["id", "link", "name"];
+  const excludedKeys = ["id", "link", "name", "brand"];
 
   const handleOptionClick = (key, value) => {
     setAnswers((prev) => ({

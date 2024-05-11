@@ -1,6 +1,6 @@
 /* src/App.css */
 .App {
-  font-family: "Nanum Barun Gothic";
+  font-family: "Nanum Barun Gothic", sans-serif;
   color: #666666;
   display: flex;
   flex-direction: column;

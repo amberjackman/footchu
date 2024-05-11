@@ -290,13 +290,13 @@ export const advancedQuestions = [
   ...questions,
   {
     id: 1,
-    question: "원하는 전족부 너비는 어느정도 인가요???",
+    question: "원하는 전족부 너비는 어느정도 인가요?",
     options: ["넓음", "중간", "좁음", "상관 없음"],
     key: "frontwide",
   },
   {
     id: 2,
-    question: "원하는 중족부 너비는 어느정도 인가요???",
+    question: "원하는 중족부 너비는 어느정도 인가요?",
     options: ["넓음", "중간", "좁음", "상관 없음"],
     key: "midwide",
   },

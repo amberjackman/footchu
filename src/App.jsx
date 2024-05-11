@@ -228,8 +228,7 @@ function App({ shoe }) {
               사이즈는 발 실측 사이즈 +5~10mm를 추천합니다
             </strong> <br /> <br /> */}
           <span>
-            상세한 요구사항이 있는 경우에는 <br />
-            ADVANCED MODE🔥 를 추천합니다
+            상세한 요구사항이 있는 경우에는 ADVANCED MODE🔥 를 추천합니다
           </span>
           <div className="toggle-container">
             <label className="toggle-label">

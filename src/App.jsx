@@ -11,16 +11,20 @@ const calculateScore = (shoe, answers, currentQuestions) => {
     const answerValue = answers[question.key];
     const shoeValue = shoe[question.key];
 
+    console.log(`Question: ${question.key}`);
+    console.log(`Answer value: ${answerValue}`);
+    console.log(`Shoe value: ${shoeValue}`);
+
     if (question.key === "brand") {
-      if (answerValue === "상관없음") {
+      if (answerValue === "상관 없음") {
         score += 0;
       } else if (answerValue === "기타") {
         if (shoeValue === "ETC") {
-          score += 15;
+          score += 16;
         }
       } else {
         if (shoeValue === answerValue) {
-          score += 15;
+          score += 16;
         }
       }
     } else if (question.key === "material") {
@@ -41,7 +45,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         score += 15;
       }
     } else if (question.key === "midsole") {
-      if (answerValue === "상관없음" || shoeValue === "N/A") {
+      if (answerValue === "상관 없음" || shoeValue === "N/A") {
         score += 0;
       } else if (
         (answerValue === "단단" && shoeValue === "hard") ||
@@ -50,8 +54,16 @@ const calculateScore = (shoe, answers, currentQuestions) => {
       ) {
         score += 20;
       }
+    } else if (question.key === "cheap") {
+      if (answerValue === "상관 없음" && shoeValue === undefined) {
+        score += 0;
+      } else if (answerValue === "낮을수록 좋음" && shoeValue === true) {
+        score += 22;
+      } else if (answerValue === "비싼게 좋음" && shoeValue === undefined) {
+        score += 22;
+      }
     } else if (question.key === "frontwide") {
-      if (answerValue === "상관없음" || shoeValue === null) {
+      if (answerValue === "상관 없음" || shoeValue === null) {
         score += 0;
       } else if (
         (answerValue === "넓음" && shoeValue === "wide") ||
@@ -61,7 +73,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         score += 10;
       }
     } else if (question.key === "midwide") {
-      if (answerValue === "상관없음" || shoeValue === null) {
+      if (answerValue === "상관 없음" || shoeValue === null) {
         score += 0;
       } else if (
         (answerValue === "넓음" && shoeValue === "wide") ||
@@ -71,7 +83,7 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         score += 10;
       }
     } else if (question.key === "outsole") {
-      if (answerValue === "상관없음" || shoeValue === null) {
+      if (answerValue === "상관 없음" || shoeValue === null) {
         score += 0;
       } else if (
         (answerValue === "단단" && shoeValue === "hard") ||
@@ -113,31 +125,24 @@ function App({ shoe }) {
   const [animation, setAnimation] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const excludedKeys = [
-    "id",
-    "link",
-    "name",
-    "brand",
-    "cheap",
-    "wide_position",
-  ];
+  const excludedKeys = ["id", "link", "name", "brand", "wide_position"];
 
   const handleOptionClick = (key, value) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+    setAnswers((prev) => {
+      return { ...prev, [key]: value };
+    });
 
     if (currentQuestion < currentQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowModal(true);
-
       setTimeout(() => {
-        const topMatches = findTopMatches(answers, currentQuestions);
-        setShowModal(false);
-
-        setRecommendations(topMatches);
+        setAnswers((prevAnswers) => {
+          const topMatches = findTopMatches(prevAnswers, currentQuestions);
+          setShowModal(false);
+          setRecommendations(topMatches);
+          return prevAnswers;
+        });
       }, 1000);
     }
   };
@@ -178,38 +183,68 @@ function App({ shoe }) {
     },
   });
 
+  const keyToKorean = {
+    type: "컨셉",
+    material: "소재",
+    frontwide: "전족부 너비",
+    midwide: "중족부 너비",
+    midsole: "미드솔 쿠셔닝",
+    outsole: "아웃솔 강도",
+    cheap: "가성비",
+    description: "설명",
+  };
+
+  const valueToKorean = {
+    Speed: "경량",
+    Control: "컨트롤",
+    Comport: "착화감",
+    Knit: "니트",
+    "Synthetic leather": "인조 가죽",
+    "Real leather": "천연 가죽",
+    mid: "중간",
+    wide: "넓음",
+    narrow: "좁음",
+    hard: "단단",
+    soft: "유연",
+    "N/A": "해당 없음",
+    true: "✔",
+  };
+
   if (!isQuizStarted) {
     return (
       <div className="App landing">
         <h1 onClick={handleLogoClick} style={{ cursor: "pointer" }}>
           FOOTCHU
         </h1>
-        <ul>
-          <li>
-            <strong>TF모델을 기본으로 상정합니다</strong> <br />
-            <br />
-            TF모델과 스터드모델의 큰 차이가 있을 경우
-            <br /> 결과창의 설명란에서 확인하실 수 있습니다
-          </li>
-          <li>
-            <strong>
-              본인의 실측 발 길이,너비를 아시는 경우 ADVANCED 모드를 추천합니다
-            </strong>
-          </li>
-        </ul>
-        <div className="toggle-container">
-          <label className="toggle-label">
-            <p>ADVANCED MODE</p>
-            <input
-              type="checkbox"
-              // disabled={true}
-              cursor="disable"
-              checked={isAdvancedMode}
-              onChange={() => setIsAdvancedMode(!isAdvancedMode)}
-              className="toggle-checkbox"
-            />
-            <span className="toggle-switch"> </span>
-          </label>
+        <div className="mainContainer">
+          <strong>⚠️TF모델을 기본으로 상정합니다⚠️</strong>
+          TF모델과 스터드모델의 큰 차이가 있을 경우 <br />
+          결과창의 설명란에서 확인하실 수 있습니다
+          <br />
+          또는 추천 모델이 TF모델이 아닌 경우 모델명에 표기됩니다
+          <br />
+          <br />
+          {/* <strong>
+              사이즈는 발 실측 사이즈 +5~10mm를 추천합니다
+            </strong> <br /> <br /> */}
+          <span>
+            상세한 요구사항이 있는 경우에는 <br />
+            ADVANCED MODE🔥 를 추천합니다
+          </span>
+          <div className="toggle-container">
+            <label className="toggle-label">
+              <strong>ADVANCED MODE</strong>
+              <input
+                type="checkbox"
+                // disabled={true}
+                cursor="disable"
+                checked={isAdvancedMode}
+                onChange={() => setIsAdvancedMode(!isAdvancedMode)}
+                className="toggle-checkbox"
+              />
+              <span className="toggle-switch"> </span>
+            </label>
+          </div>
         </div>
 
         <button
@@ -218,7 +253,9 @@ function App({ shoe }) {
         >
           추천받기 {isAdvancedMode ? "🔥" : ""}
         </button>
-        <div className="contact-container">footchu.contact@gmail.com</div>
+        <div className="contact-container">
+          문의사항, 수정사항 🙏 footchu.contact@gmail.com
+        </div>
       </div>
     );
   }
@@ -245,17 +282,19 @@ function App({ shoe }) {
                     .filter(([key]) => !excludedKeys.includes(key))
                     .map(([key, value]) => (
                       <li key={key}>
-                        <strong>{key}:</strong>{" "}
+                        <strong>{keyToKorean[key] || key}:</strong>{" "}
                         {key === "link" ? (
                           <a
                             href={value}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {value}
+                            value
                           </a>
-                        ) : (
+                        ) : key === "description" ? (
                           value
+                        ) : (
+                          valueToKorean[value]
                         )}
                       </li>
                     ))}

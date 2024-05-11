@@ -13,7 +13,6 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "mid",
-
     link: "",
     description:
       "니트를 베이스로한 TF화 입니다. 가벼운 어퍼, 한국의 인조잔디에 어울리는 좋은 스터드, 적당한 길이와 너비, 밸런스가 좋은 신발 입니다. ",
@@ -134,13 +133,14 @@ export const shoes = [
     brand: "ETC",
     type: "Comport",
     material: "Real leather",
-    cheap: true,
+
     wide_position: "mid",
     frontwide: "mid",
     midwide: "mid",
     midsole: "mid",
     outsole: "mid",
     link: "",
+    cheap: true,
     description:
       "캥거루 가죽을 사용했습니다. 편하고, 가볍고, 가성비가 훌륭합니다 TF모델도,MG모델도 한국의 잔디와 잘 어울리므로 양쪽 전부 추천합니다 국내 정식발매되지 않아 해외구매가 필수입니다.",
   },
@@ -165,13 +165,13 @@ export const shoes = [
     brand: "Adidas",
     type: "Comport",
     material: "Real leather",
-    cheap: true,
     wide_position: "mid",
     frontwide: "mid",
     midwide: "narrow",
     midsole: "mid",
     outsole: "hard",
     link: "",
+    cheap: true,
     description:
       "두툼한 소가죽, 편한 착화감, 라이트스트라이크 미드솔, 좋은 가성비. 묵직한 무게에 거부감이 없다면 추천합니다",
   },
@@ -240,13 +240,13 @@ export const shoes = [
     brand: "Nike",
     type: "Comport",
     material: "Real leather",
-    cheap: true,
     wide_position: "mid",
     frontwide: "mid",
     midwide: "wide",
     midsole: "soft",
     outsole: "soft",
     link: "",
+    cheap: true,
     description:
       "가성비 좋은 천연가죽 TF화 입니다. 푹신한 루나론 미드솔과 부드러운 소가죽이 특징입니다.",
   },
@@ -257,7 +257,7 @@ export const questions = [
   {
     id: 1,
     question: "선호하는 브랜드를 선택해주세요.",
-    options: ["Nike", "Adidas", "Puma", "기타", "상관없음"],
+    options: ["Nike", "Adidas", "Puma", "기타", "상관 없음"],
     key: "brand",
   },
   {
@@ -281,7 +281,7 @@ export const questions = [
   {
     id: 5,
     question: "가격이 낮은 제품 위주로 찾고 있나요?",
-    options: ["예", "아니오", "상관 없음"],
+    options: ["낮을수록 좋음", "상관 없음", "비싼게 좋음"],
     key: "cheap",
   },
 ];

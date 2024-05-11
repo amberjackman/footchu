@@ -1,12 +1,12 @@
 /* src/App.css */
 .App {
+  font-family: "Nanum Barun Gothic", sans-serif;
   color: #666666;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
   padding: 20px;
 }
 
@@ -16,6 +16,14 @@
 
 .landing > ul {
   list-style-type: none;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .question-card {
@@ -58,6 +66,10 @@
   text-align: center;
   background-color: #f9f9f9;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation > div > ul {
+  list-style: none;
 }
 
 button {

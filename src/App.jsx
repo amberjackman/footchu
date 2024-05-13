@@ -53,6 +53,11 @@ const calculateScore = (shoe, answers, currentQuestions) => {
         (answerValue === "중간" && shoeValue === "mid")
       ) {
         score += 20;
+      } else if (
+        (answerValue === "푹신" && shoeValue === "hard") ||
+        (answerValue === "단단" && shoeValue === "soft")
+      ) {
+        score -= 10;
       }
     } else if (question.key === "cheap") {
       if (answerValue === "상관 없음" && shoeValue === undefined) {
@@ -256,7 +261,12 @@ function App({ shoe }) {
         </button>
 
         <div className="footer-container">
-          문의사항, 수정사항 🙏 footchu.contact@gmail.com
+          {/* 수정 */}
+          {/* <div className="footerinner-container">
+            <div>About</div>
+            <div>Notice</div>
+          </div> */}
+          <div>문의사항, 수정사항 🙏 footchu.contact@gmail.com</div>
         </div>
       </div>
     );

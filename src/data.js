@@ -3,6 +3,68 @@
 // 축구화 데이터
 export const shoes = [
   {
+    // 아디다스
+    id: 2,
+    name: "Adidas Predator 24",
+    brand: "Adidas",
+    type: "Control",
+    material: "Synthetic leather",
+    wide_position: "mid",
+    frontwide: "narrow",
+    midwide: "narrow",
+    midsole: "mid",
+    outsole: "hard",
+    link: "",
+    description:
+      "TF버전과 AG버전이 다른 신발이라고 해도 좋을 만큼 차이가 심합니다. TF버전의 경우 뻣뻣하고 매우 좁으므로, 비교 후 구매를 추천합니다.",
+  },
+  {
+    id: 8,
+    name: "Adidas Copa Pure",
+    brand: "Adidas",
+    type: "Comport",
+    material: "Synthetic leather",
+    wide_position: "mid",
+    frontwide: "mid",
+    midwide: "mid",
+    midsole: "hard",
+    outsole: "hard",
+    link: "",
+    description: "TF화는 굉장히 무겁고 불편요소가 많아 2g/3g 버전을 추천합니다",
+  },
+  {
+    id: 10,
+    name: "Adidas Gloro",
+    brand: "Adidas",
+    type: "Comport",
+    material: "Real leather",
+    wide_position: "mid",
+    frontwide: "mid",
+    midwide: "narrow",
+    midsole: "mid",
+    outsole: "hard",
+    link: "",
+    cheap: true,
+    description:
+      "두툼한 소가죽, 라이트스트라이크 미드솔, 좋은 가성비. 귀여운 접이식 텅도 달렸습니다! 묵직한 무게에 거부감이 없다면 추천합니다",
+  },
+  {
+    id: 11,
+    name: "Adidas CrazyFast",
+    brand: "Adidas",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "front",
+    frontwide: "wide",
+    midwide: "narrow",
+    midsole: "soft",
+    outsole: "mid",
+    link: "",
+    description: "얇고 가벼운 어퍼, 넓고 높은 전족부, 좁은 중족부가 특징입니다",
+  },
+
+  // 나이키
+  {
     id: 1,
     name: "Nike Mercurial Vapor 15",
     brand: "Nike",
@@ -18,76 +80,12 @@ export const shoes = [
       "니트를 베이스로한 TF화 입니다. 가벼운 어퍼, 한국의 인조잔디에 어울리는 좋은 스터드, 적당한 길이와 너비, 밸런스가 좋은 신발 입니다. ",
   },
   {
-    id: 2,
-    name: "Adidas Predator 24",
-    brand: "Adidas",
-    type: "Control",
-    material: "Synthetic leather",
-    wide_position: "mid",
-
-    frontwide: "narrow",
-    midwide: "narrow",
-    midsole: "mid",
-    outsole: "hard",
-    link: "",
-    description:
-      "TF버전과 AG버전이 다른 신발이라고 해도 좋을 만큼 차이가 심합니다. TF버전의 경우 뻣뻣하고 매우 좁으므로, 비교 후 구매를 추천합니다. ",
-  },
-  {
-    id: 3,
-    name: "Puma Future 7 Ultimate",
-    brand: "Puma",
-    type: "Control",
-    material: "Knit",
-    wide_position: "front",
-
-    frontwide: "wide",
-    midwide: "mid",
-    midsole: "mid",
-    outsole: "soft",
-    link: "",
-    description:
-      "기존작 대비 끈 구멍 갯수를 줄이고 파워테이프로 발등을 감싸 끈으로부터 조금 더 자유로울 수 있습니다. MG 최상위 모델과 소재차이가 거의 없습니다",
-  },
-  {
-    id: 4,
-    name: "Puma Ultra Ultimate",
-    brand: "Puma",
-    type: "Speed",
-    material: "Synthetic leather",
-    wide_position: "front",
-
-    frontwide: "wide",
-    midwide: "narrow",
-    midsole: "mid",
-    outsole: "hard",
-    link: "",
-    description:
-      "내부가 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
-  },
-  {
-    id: 5,
-    name: "Mizuno Morelia Neo",
-    brand: "ETC",
-    type: "Speed",
-    material: "Real leather",
-    wide_position: "mid",
-
-    frontwide: "narrow",
-    midwide: "mid",
-    midsole: "hard",
-    outsole: "soft",
-    link: "",
-    description: "TF스터드는 내구도에 문제가 많아 AS모델을 추천합니다",
-  },
-  {
     id: 6,
     name: "Nike Phantom Gx2",
     brand: "Nike",
     type: "Control",
     material: "Knit",
     wide_position: "mid",
-
     frontwide: "mid",
     midwide: "wide",
     midsole: "soft",
@@ -103,7 +101,6 @@ export const shoes = [
     type: "Comport",
     material: "Synthetic leather",
     wide_position: "mid",
-
     frontwide: "narrow",
     midwide: "mid",
     midsole: "mid",
@@ -113,19 +110,68 @@ export const shoes = [
       "천연가죽을 포기하고 인조가죽을 택했음에도 좋은 착화감과 터치감을 가지고 있습니다, 의외로 너비가 좁아 주의가 필요합니다",
   },
   {
-    id: 8,
-    name: "Adidas Copa Pure",
-    brand: "Adidas",
+    id: 15,
+    name: "Nike Premier 3",
+    brand: "Nike",
     type: "Comport",
-    material: "Synthetic leather",
+    material: "Real leather",
     wide_position: "mid",
-
     frontwide: "mid",
+    midwide: "wide",
+    midsole: "soft",
+    outsole: "soft",
+    link: "",
+    cheap: true,
+    description:
+      "가성비 좋은 천연가죽 TF화 입니다. 푹신한 루나론 미드솔과 부드러운 소가죽이 특징입니다.",
+  },
+
+  // 푸마
+  {
+    id: 3,
+    name: "Puma Future 7 Ultimate",
+    brand: "Puma",
+    type: "Control",
+    material: "Knit",
+    wide_position: "front",
+    frontwide: "wide",
     midwide: "mid",
-    midsole: "hard",
+    midsole: "mid",
+    outsole: "soft",
+    link: "",
+    description:
+      "기존작 대비 끈 구멍 갯수를 줄이고 파워테이프로 발등을 감싸 끈으로부터 조금 더 자유로울 수 있습니다. MG 최상위 모델과 소재차이가 거의 없습니다",
+  },
+  {
+    id: 4,
+    name: "Puma Ultra Ultimate",
+    brand: "Puma",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "front",
+    frontwide: "wide",
+    midwide: "narrow",
+    midsole: "mid",
     outsole: "hard",
     link: "",
-    description: "TF화는 굉장히 무겁고 불편요소가 많아 2g/3g 버전을 추천합니다",
+    description:
+      "내부가 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
+  },
+
+  // ETC
+  {
+    id: 5,
+    name: "Mizuno Morelia Neo",
+    brand: "ETC",
+    type: "Speed",
+    material: "Real leather",
+    wide_position: "mid",
+    frontwide: "narrow",
+    midwide: "mid",
+    midsole: "hard",
+    outsole: "soft",
+    link: "",
+    description: "TF스터드는 내구도에 문제가 많아 AS모델을 추천합니다",
   },
   {
     id: 8,
@@ -133,7 +179,6 @@ export const shoes = [
     brand: "ETC",
     type: "Comport",
     material: "Real leather",
-
     wide_position: "mid",
     frontwide: "mid",
     midwide: "mid",
@@ -158,36 +203,6 @@ export const shoes = [
     link: "",
     description:
       "뉴발란스의 러닝화 라인업에 들어가는 Fuelcel쿠션이 들어간 것이 큰 장점입니다 다만 국내 정식발매되지 않아 해외구매가 필수입니다.",
-  },
-  {
-    id: 10,
-    name: "Adidas Gloro",
-    brand: "Adidas",
-    type: "Comport",
-    material: "Real leather",
-    wide_position: "mid",
-    frontwide: "mid",
-    midwide: "narrow",
-    midsole: "mid",
-    outsole: "hard",
-    link: "",
-    cheap: true,
-    description:
-      "두툼한 소가죽, 편한 착화감, 라이트스트라이크 미드솔, 좋은 가성비. 묵직한 무게에 거부감이 없다면 추천합니다",
-  },
-  {
-    id: 11,
-    name: "Adidas CrazyFast",
-    brand: "Adidas",
-    type: "Speed",
-    material: "Synthetic leather",
-    wide_position: "front",
-    frontwide: "wide",
-    midwide: "narrow",
-    midsole: "soft",
-    outsole: "mid",
-    link: "",
-    description: "얇고 가벼운 어퍼, 넓고 높은 전족부, 좁은 중족부가 특징입니다",
   },
   {
     id: 12,
@@ -235,20 +250,34 @@ export const shoes = [
       "가볍고 부드럽지만 반발력은 좋은 인조가죽 어퍼를 사용했습니다. 다만 일체형 니트텅으로 볼이 넓고 높다면 추천하지 않습니다",
   },
   {
-    id: 15,
-    name: "Nike Premier 3",
-    brand: "Nike",
+    id: 16,
+    name: "Athleta a005",
+    brand: "ETC",
     type: "Comport",
     material: "Real leather",
     wide_position: "mid",
     frontwide: "mid",
     midwide: "wide",
-    midsole: "soft",
+    midsole: "mid",
     outsole: "soft",
     link: "",
-    cheap: true,
     description:
-      "가성비 좋은 천연가죽 TF화 입니다. 푹신한 루나론 미드솔과 부드러운 소가죽이 특징입니다.",
+      "모든 부분이 캥거루 가죽이며, 쿠션이 뒷꿈치 집중이 아닌, 발 전체에 깔린 것이 특징입니다. ",
+  },
+  {
+    id: 17,
+    name: "Definiv Bs",
+    brand: "ETC",
+    type: "Comport",
+    material: "Real leather",
+    wide_position: "mid",
+    frontwide: "wide",
+    midwide: "wide",
+    midsole: "mid",
+    outsole: "hard",
+    link: "",
+    description:
+      "AG+TF라는 특이한 스터드와 발 전체에 깔린 쿠션이 특징입니다. 천연 가죽,인조 가죽, 낮은 미드솔,높은 미드솔 등 여러 바리에이션이 존재하므로 확인 후 구매를 추천드립니다 ",
   },
 ];
 
@@ -272,12 +301,7 @@ export const questions = [
     options: ["경량", "컨트롤", "착화감"],
     key: "type",
   },
-  {
-    id: 4,
-    question: "원하는 쿠셔닝의 정도는 어느정도 인가요?",
-    options: ["단단", "중간", "푹신", "상관 없음"],
-    key: "midsole",
-  },
+
   {
     id: 5,
     question: "가격이 낮은 제품 위주로 찾고 있나요?",
@@ -286,6 +310,7 @@ export const questions = [
   },
 ];
 
+//어드밴스드 모드
 export const advancedQuestions = [
   ...questions,
   {

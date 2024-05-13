@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 20px;
 }
 
@@ -325,6 +325,15 @@ h1 {
   transform: translateY(-2px);
 }
 
+.option-card:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+.option-card:active {
+  background-color: f0f0f0;
+}
+
 /* 버튼 기본 스타일 */
 button {
   background-color: #4caf50;
@@ -382,6 +391,13 @@ button:hover {
   margin-top: 50px;
   color: rgba(128, 128, 128, 0.5);
   font-size: small;
+}
+
+.footerinner-container {
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
 }
 
 /* 링크 및 기타 요소 스타일 */

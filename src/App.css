@@ -18,6 +18,10 @@
   list-style-type: none;
 }
 
+.logoContainer {
+  display: flex;
+  margin: 3rem;
+}
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -188,7 +192,7 @@ button:hover {
 
 /* Advanced 모드일 때의 스타트 버튼 스타일 */
 .advanced-mode {
-  background-color: #2196f3;
+  background-color: #1190cc;
 }
 
 .advanced-mode:hover {
@@ -241,7 +245,7 @@ button:hover {
 }
 
 .toggle-checkbox:checked + .toggle-switch {
-  background-color: #2196f3;
+  background-color: #1190cc;
 }
 
 .toggle-checkbox:checked + .toggle-switch::before {
@@ -414,7 +418,6 @@ li {
   margin-bottom: 10px;
 }
 
-/* 반응형 디자인 */
 @media (max-width: 768px) {
   .question-card,
   .modal-content {

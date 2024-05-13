@@ -112,7 +112,7 @@ const findTopMatches = (answers, currentQuestions, topN = 3) => {
   // 점수에 따라 내림차순 정렬
   scoredShoes.sort((a, b) => b.score - a.score);
 
-  // 상위 N개 결과 반환
+  // 상위 3개 결과 반환
   return scoredShoes.slice(0, topN).map((entry) => ({
     shoe: entry.shoe,
     score: entry.score,
@@ -218,9 +218,14 @@ function App({ shoe }) {
   if (!isQuizStarted) {
     return (
       <div className="App landing">
-        <h1 onClick={handleLogoClick} style={{ cursor: "pointer" }}>
-          FOOTCHU
-        </h1>
+        <div className="logoContainer">
+          <img
+            src="/image/footchu_landing_logo_ver2.png"
+            onClick={handleLogoClick}
+            style={{ cursor: "pointer" }}
+          ></img>
+        </div>
+
         <div className="mainContainer">
           <strong>⚠️TF모델을 기본으로 상정합니다⚠️</strong>
           TF모델과 스터드모델의 큰 차이가 있을 경우 <br />
@@ -241,7 +246,7 @@ function App({ shoe }) {
               <input
                 type="checkbox"
                 // disabled={true}
-                cursor="disable"
+                // cursor="disable"
                 checked={isAdvancedMode}
                 onChange={() => setIsAdvancedMode(!isAdvancedMode)}
                 className="toggle-checkbox"

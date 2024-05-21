@@ -272,6 +272,12 @@ function App({ shoe }) {
             <div>Notice</div>
           </div> */}
           <div>문의사항, 수정사항 🙏 footchu.contact@gmail.com</div>
+          <a
+            onClick={() => window.open("https://naver.me/xEAuswq8", "_blank")}
+            style={{ cursor: "pointer" }}
+          >
+            피드백 남기기
+          </a>
         </div>
       </div>
     );
@@ -319,6 +325,7 @@ function App({ shoe }) {
               </div>
             </div>
           ))}
+
           <button onClick={handleRestart}>다시 시작하기</button>
         </div>
       ) : (
@@ -339,6 +346,16 @@ function App({ shoe }) {
                 {option}
               </div>
             ))}
+            {currentQuestion > 0 && (
+              <div className="backbuttoncontainer">
+                <button
+                  onClick={() => setCurrentQuestion(currentQuestion - 1)}
+                  className="back-button"
+                >
+                  이전 문제
+                </button>
+              </div>
+            )}
           </div>
         </animated.div>
       )}

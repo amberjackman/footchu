@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    {
+      "source": "/naveracd6a367834c5c5887c5f6a14083502b.html",
+      "destination": "/naveracd6a367834c5c5887c5f6a14083502b.html"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    { "source": "/(.*)", "destination": "/index.html" },
+    { "source": "/favicon.ico", "destination": "/favicon.ico" }
+  ]
 }

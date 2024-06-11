@@ -3,6 +3,7 @@ import { shoes, questions, advancedQuestions } from "./data";
 import { useSpring, animated } from "react-spring";
 import Modal from "./Modal.jsx";
 import "./App.css";
+import Seo from "../public/seo";
 
 // 유사도 계산 함수
 const calculateScore = (shoe, answers, currentQuestions) => {
@@ -188,6 +189,17 @@ function App({ shoe }) {
     },
   });
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "2024년 축구화 추천",
+    description: "2024년 축구화를 다양한 기준으로 비교하고 추천합니다.",
+    author: {
+      "@type": "Person",
+    },
+    datePublished: "2024-06-07",
+  };
+
   const keyToKorean = {
     type: "컨셉",
     material: "소재",
@@ -216,6 +228,11 @@ function App({ shoe }) {
   };
 
   if (!isQuizStarted) {
+    <Seo
+      title="2024년 최고의 축구화 추천"
+      description="축구화를 다양한 기준으로 추천합니다."
+      jsonLd={jsonLd}
+    />;
     return (
       <div className="App landing">
         <div className="logoContainer">

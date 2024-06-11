@@ -12,6 +12,8 @@ const Footer = () => {
   const toggleAboutModal = () => setShowAbout(!showAbout);
   const toggleNoticeModal = () => setShowNotice(!showNotice);
 
+  const shoeNames = shoes.map((shoe) => shoe.name);
+
   return (
     <div className="footer-container">
       <div className="footer-inner-container">
@@ -23,6 +25,12 @@ const Footer = () => {
         </div>
       </div>
       <div>문의사항, 수정사항 🙏 footchu.contact@gmail.com</div>
+      <a
+        onClick={() => window.open("https://naver.me/xEAuswq8", "_blank")}
+        style={{ cursor: "pointer" }}
+      >
+        피드백 남기기
+      </a>
 
       {/* About Modal */}
       <Modal show={showAbout}>
@@ -38,6 +46,9 @@ const Footer = () => {
         <div>
           <h2>Notice</h2>
           <p>현재 확인할 수 있는 축구화 리스트</p>
+          {shoeNames.map((name, index) => (
+            <p key={index}>{name}</p>
+          ))}
           <button onClick={toggleNoticeModal}>Close</button>
         </div>
       </Modal>

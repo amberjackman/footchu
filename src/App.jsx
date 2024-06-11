@@ -3,6 +3,7 @@ import { shoes, questions, advancedQuestions } from "./data";
 import { useSpring, animated } from "react-spring";
 import Modal from "./Modal.jsx";
 import "./App.css";
+import Footer from "./Footer";
 import Seo from "../public/seo";
 
 // 유사도 계산 함수
@@ -251,9 +252,6 @@ function App({ shoe }) {
           또는 추천 모델이 TF모델이 아닌 경우 모델명에 표기됩니다
           <br />
           <br />
-          {/* <strong>
-              사이즈는 발 실측 사이즈 +5~10mm를 추천합니다
-            </strong> <br /> <br /> */}
           <span>
             상세한 요구사항이 있는 경우에는 ADVANCED MODE🔥 를 추천합니다
           </span>
@@ -281,21 +279,7 @@ function App({ shoe }) {
           추천받기
           {isAdvancedMode ? "🔥" : ""}
         </button>
-
-        <div className="footer-container">
-          {/* 수정 */}
-          {/* <div className="footerinner-container">
-            <div>About</div>
-            <div>Notice</div>
-          </div> */}
-          <div>문의사항, 수정사항 🙏 footchu.contact@gmail.com</div>
-          <a
-            onClick={() => window.open("https://naver.me/xEAuswq8", "_blank")}
-            style={{ cursor: "pointer" }}
-          >
-            피드백 남기기
-          </a>
-        </div>
+        <Footer />
       </div>
     );
   }

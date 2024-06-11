@@ -1,0 +1,11 @@
+.footer-inner-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-inner-container > div {
+  margin: 5px;
+  /* color: #666666; */
+}

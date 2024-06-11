@@ -7,20 +7,25 @@
   align-items: center;
   justify-content: center;
   min-height: 90vh;
-  padding: 20px;
-}
-
-.App > h1 {
-  color: #666666;
+  padding-bottom: 20px;
 }
 
 .landing > ul {
   list-style-type: none;
 }
 
+.title-container {
+  font-size: 10px;
+  color: #666666;
+}
+
+.title-container > h1 {
+  color: #666666;
+}
+
 .logoContainer {
   display: flex;
-  margin: 3rem;
+  margin-bottom: 3rem;
 }
 .mainContainer {
   display: flex;
@@ -62,14 +67,36 @@
   background-color: #e0e0e0;
 }
 
+.recommendations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.recommendation-background-container {
+  width: 350px;
+  height: 350px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 2;
+  position: absolute;
+}
+
 .recommendation {
   width: 350px;
+  height: auto;
+  display: inline-block;
+  margin: 20px; /* 여백 추가 */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  background-color: #f9f9f9;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
 }
 
 .recommendation > div > ul {

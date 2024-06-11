@@ -236,6 +236,9 @@ function App({ shoe }) {
     />;
     return (
       <div className="App landing">
+        <div className="title-container">
+          <h1>축구화 추천은 FOOTCHU</h1>
+        </div>
         <div className="logoContainer">
           <img
             src="/image/footchu_landing_logo_ver2.png"
@@ -296,8 +299,23 @@ function App({ shoe }) {
         <div className="recommendations">
           <h2>RESULT</h2>
           {recommendations.map((entry, index) => (
-            <div key={index} className="recommendation">
+            <div className="recommendation" key={index}>
               <h3>{index + 1}위</h3>
+              <div
+                className="recommendaition-background-container"
+                style={
+                  entry.shoe.link
+                    ? {
+                        backgroundImage: `url(${entry.shoe.link})`,
+                        backgroundSize: "100%",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                      }
+                    : {}
+                }
+              >
+                ?
+              </div>
               <div>
                 <h2>{entry.shoe.name}</h2>
                 <h2>적합도 : {entry.score}</h2>
@@ -307,19 +325,7 @@ function App({ shoe }) {
                     .map(([key, value]) => (
                       <li key={key}>
                         <strong>{keyToKorean[key] || key}:</strong>{" "}
-                        {key === "link" ? (
-                          <a
-                            href={value}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            value
-                          </a>
-                        ) : key === "description" ? (
-                          value
-                        ) : (
-                          valueToKorean[value]
-                        )}
+                        {key === "description" ? value : valueToKorean[value]}
                       </li>
                     ))}
                 </ul>

@@ -75,7 +75,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "mid",
-    link: "",
+    link: "../public/image/vapor15.png",
     description:
       "니트를 베이스로한 TF화 입니다. 가벼운 어퍼, 한국의 인조잔디에 어울리는 좋은 스터드, 적당한 길이와 너비, 밸런스가 좋은 신발 입니다. ",
   },

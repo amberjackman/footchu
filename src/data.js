@@ -14,7 +14,7 @@ export const shoes = [
     midwide: "narrow",
     midsole: "mid",
     outsole: "hard",
-    link: "../public/image/predator24.png",
+    link: "/image/predator24.png",
     description:
       "TF버전과 AG버전이 다른 신발이라고 해도 좋을 만큼 차이가 심합니다. TF버전의 경우 뻣뻣하고 매우 좁으므로, 비교 후 구매를 추천합니다.",
   },
@@ -29,7 +29,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "hard",
     outsole: "hard",
-    link: "../public/image/copapure.png",
+    link: "/image/copapure.png",
     description: "TF화는 굉장히 무겁고 불편요소가 많아 2g/3g 버전을 추천합니다",
   },
   {
@@ -59,7 +59,7 @@ export const shoes = [
     midwide: "narrow",
     midsole: "soft",
     outsole: "mid",
-    link: "../public/image/crazyfast.png",
+    link: "/image/crazyfast.png",
     description: "얇고 가벼운 어퍼, 넓고 높은 전족부, 좁은 중족부가 특징입니다",
   },
 
@@ -75,7 +75,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "mid",
-    link: "../public/image/vapor15.png",
+    link: "/image/vapor15.png",
     description:
       "니트를 베이스로한 TF화 입니다. 가벼운 어퍼, 한국의 인조잔디에 어울리는 좋은 스터드, 적당한 길이와 너비, 밸런스가 좋은 신발 입니다. ",
   },
@@ -90,7 +90,7 @@ export const shoes = [
     midwide: "wide",
     midsole: "soft",
     outsole: "soft",
-    link: "../public/image/gx2.png",
+    link: "/image/gx2.png",
     description:
       "꽤 널널한 착화감 입니다. 니트의 장점을 극대화한 gx1과 다르게 경량화한 인조가죽에 가깝습니다 니트의 포근함과 편안한 착화감을 원한다면 gx1 모델을 추천합니다.",
   },
@@ -138,7 +138,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "soft",
-    link: "../public/image/future.png",
+    link: "/image/future.png",
     description:
       "기존작 대비 끈 구멍 갯수를 줄이고 파워테이프로 발등을 감싸 끈으로부터 조금 더 자유로울 수 있습니다. MG 최상위 모델과 소재차이가 거의 없습니다",
   },
@@ -153,7 +153,7 @@ export const shoes = [
     midwide: "narrow",
     midsole: "mid",
     outsole: "hard",
-    link: "../public/image/ultra.png",
+    link: "/image/ultra.png",
     description:
       "내부가 비칠 정도로 얇고 가벼운 어퍼가 특징입니다. TF버전은 두꺼운 미드솔이 있어 무게가 조금 증가하고, MG버전 최상위 모델과 어퍼가 다르므로 비교 후 구매하는 것을 추천합니다.",
   },

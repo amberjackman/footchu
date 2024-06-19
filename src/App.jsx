@@ -5,6 +5,7 @@ import Modal from "./Modal.jsx";
 import "./App.css";
 import Footer from "./Footer";
 import Seo from "../public/seo";
+import { auto } from "@popperjs/core";
 
 // 유사도 계산 함수
 const calculateScore = (shoe, answers, currentQuestions) => {
@@ -299,23 +300,25 @@ function App({ shoe }) {
         <div className="recommendations">
           <h2>RESULT</h2>
           {recommendations.map((entry, index) => (
-            <div className="recommendation" key={index}>
+            <div
+              key={index}
+              className="recommendation"
+              style={
+                entry.shoe.link
+                  ? {
+                      backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(${entry.shoe.link})`,
+                      backgroundSize: "100%",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                      padding: "20px",
+                      borderRadius: "10px",
+                      color: "black",
+                      position: "relative",
+                    }
+                  : {}
+              }
+            >
               <h3>{index + 1}위</h3>
-              <div
-                className="recommendaition-background-container"
-                style={
-                  entry.shoe.link
-                    ? {
-                        backgroundImage: `url(${entry.shoe.link})`,
-                        backgroundSize: "100%",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                      }
-                    : {}
-                }
-              >
-                ?
-              </div>
               <div>
                 <h2>{entry.shoe.name}</h2>
                 <h2>적합도 : {entry.score}</h2>
@@ -332,7 +335,6 @@ function App({ shoe }) {
               </div>
             </div>
           ))}
-
           <button onClick={handleRestart}>다시 시작하기</button>
         </div>
       ) : (

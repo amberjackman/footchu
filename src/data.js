@@ -171,7 +171,8 @@ export const shoes = [
     midsole: "hard",
     outsole: "soft",
     link: "/image/morelia.png",
-    description: "TF스터드는 내구도에 문제가 많아 AS모델을 추천합니다",
+    description:
+      "24년 6월 새로운 모델이 발매되면서, 기존의 악명높던 ㄱㄴ스터드가 사라졌습니다. 캥거루 가죽을 사용했으며 가볍고 핏한 축구화 입니다.",
   },
   {
     id: 8,

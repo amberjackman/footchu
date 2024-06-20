@@ -13,6 +13,7 @@ const Footer = () => {
   const toggleNoticeModal = () => setShowNotice(!showNotice);
 
   const shoeNames = shoes.map((shoe) => shoe.name);
+  const sortedshoeNames = [...shoeNames].sort();
 
   return (
     <div className="footer-container">
@@ -36,17 +37,18 @@ const Footer = () => {
       <Modal show={showAbout}>
         <div>
           <h2>About</h2>
-          <p>ABOUT</p>
+          <h3>ABOUT</h3>
+          <p></p>
           <button onClick={toggleAboutModal}>Close</button>
         </div>
       </Modal>
 
       {/* Notice Modal */}
       <Modal show={showNotice}>
-        <div>
+        <div className="noticeContainer">
           <h2>Notice</h2>
-          <p>현재 확인할 수 있는 축구화 리스트</p>
-          {shoeNames.map((name, index) => (
+          <h3>현재 확인할 수 있는 축구화 목록</h3>
+          {sortedshoeNames.map((name, index) => (
             <p key={index}>{name}</p>
           ))}
           <button onClick={toggleNoticeModal}>Close</button>

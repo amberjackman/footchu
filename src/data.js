@@ -43,7 +43,7 @@ export const shoes = [
     midwide: "narrow",
     midsole: "mid",
     outsole: "hard",
-    link: "",
+    link: "/image/gloro.png",
     cheap: true,
     description:
       "두툼한 소가죽, 라이트스트라이크 미드솔, 좋은 가성비. 귀여운 접이식 텅도 달렸습니다! 묵직한 무게에 거부감이 없다면 추천합니다",
@@ -105,7 +105,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "soft",
-    link: "",
+    link: "/image/tiempo.png",
     description:
       "천연가죽을 포기하고 인조가죽을 택했음에도 좋은 착화감과 터치감을 가지고 있습니다, 의외로 너비가 좁아 주의가 필요합니다",
   },
@@ -120,7 +120,7 @@ export const shoes = [
     midwide: "wide",
     midsole: "soft",
     outsole: "soft",
-    link: "",
+    link: "/image/premier.png",
     cheap: true,
     description:
       "가성비 좋은 천연가죽 TF화 입니다. 푹신한 루나론 미드솔과 부드러운 소가죽이 특징입니다.",
@@ -170,12 +170,12 @@ export const shoes = [
     midwide: "mid",
     midsole: "hard",
     outsole: "soft",
-    link: "",
+    link: "/image/morelia.png",
     description: "TF스터드는 내구도에 문제가 많아 AS모델을 추천합니다",
   },
   {
     id: 8,
-    name: "Kelme 2.0",
+    name: "Kelme 1.1",
     brand: "ETC",
     type: "Comport",
     material: "Real leather",
@@ -184,7 +184,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "mid",
-    link: "",
+    link: "/image/kelme1.1.png",
     cheap: true,
     description:
       "캥거루 가죽을 사용했습니다. 편하고, 가볍고, 가성비가 훌륭합니다 TF모델도,MG모델도 한국의 잔디와 잘 어울리므로 양쪽 전부 추천합니다 국내 정식발매되지 않아 해외구매가 필수입니다.",
@@ -200,7 +200,7 @@ export const shoes = [
     midwide: null,
     midsole: "mid",
     outsole: "mid",
-    link: "",
+    link: "/image/furon.png",
     description:
       "뉴발란스의 러닝화 라인업에 들어가는 Fuelcel쿠션이 들어간 것이 큰 장점입니다 다만 국내 정식발매되지 않아 해외구매가 필수입니다.",
   },
@@ -215,7 +215,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "N/A",
     outsole: "hard",
-    link: "",
+    link: "/image/dslight.png",
     description:
       "아식스가 동호인을 위해 제작했다는 축구화, 캥거루가죽, K인조잔디와 어울리는 스터드",
   },
@@ -230,7 +230,7 @@ export const shoes = [
     midwide: "wide",
     midsole: "hard",
     outsole: "soft",
-    link: "",
+    link: "/image/monarcida.png",
     description:
       "모렐리아보다 조금 더 와이드한 모나르시다입니다. 발볼이 넓은데 미즈노의 제품이 신고 싶으시다면 추천드립니다.",
   },
@@ -245,7 +245,7 @@ export const shoes = [
     midwide: "narrow",
     midsole: "hard",
     outsole: "soft",
-    link: "",
+    link: "/image/alpha.png",
     description:
       "가볍고 부드럽지만 반발력은 좋은 인조가죽 어퍼를 사용했습니다. 다만 일체형 니트텅으로 볼이 넓고 높다면 추천하지 않습니다",
   },
@@ -260,9 +260,9 @@ export const shoes = [
     midwide: "wide",
     midsole: "mid",
     outsole: "soft",
-    link: "",
+    link: "/image/a005.png",
     description:
-      "모든 부분이 캥거루 가죽이며, 쿠션이 뒷꿈치 집중이 아닌, 발 전체에 깔린 것이 특징입니다. ",
+      "모든 부분이 캥거루 가죽이며, 쿠션이 뒷꿈치 집중이 아닌, 발 전체에 깔린 것이 특징입니다. 호불호가 없고 축구와 풋살 모두 준수한 성능을 보여준다는 평입니다.",
   },
   {
     id: 17,
@@ -275,7 +275,7 @@ export const shoes = [
     midwide: "wide",
     midsole: "mid",
     outsole: "hard",
-    link: "",
+    link: "/image/bs.png",
     description:
       "AG+TF라는 특이한 스터드와 발 전체에 깔린 쿠션이 특징입니다. 천연 가죽,인조 가죽, 낮은 미드솔,높은 미드솔 등 여러 바리에이션이 존재하므로 확인 후 구매를 추천드립니다 ",
   },

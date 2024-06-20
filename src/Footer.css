@@ -15,3 +15,11 @@
 
   /* color: #666666; */
 }
+
+.noticeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}

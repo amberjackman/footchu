@@ -6,6 +6,7 @@ import "./App.css";
 import Footer from "./Footer";
 import Seo from "../public/seo";
 import { auto } from "@popperjs/core";
+import { Analytics } from "@vercel/analytics/react";
 
 // 유사도 계산 함수
 const calculateScore = (shoe, answers, currentQuestions) => {
@@ -237,6 +238,7 @@ function App({ shoe }) {
     />;
     return (
       <div className="App landing">
+        <Analytics />
         <div className="title-container">
           <h1>축구화 추천은 FOOTCHU</h1>
         </div>

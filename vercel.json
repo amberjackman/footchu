@@ -1,19 +1,13 @@
 {
   "cleanUrls": true,
-
-  "rewrites": [
-    { "source": "/robots.txt", "destination": "/robots.txt" },
+  "routes": [
+    { "src": "/robots.txt", "dest": "/robots.txt" },
     {
-      "source": "/naveracd6a367834c5c5887c5f6a14083502b.html",
-      "destination": "/naveracd6a367834c5c5887c5f6a14083502b.html"
+      "src": "/naveracd6a367834c5c5887c5f6a14083502b.html",
+      "dest": "/naveracd6a367834c5c5887c5f6a14083502b.html"
     },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    { "source": "/(.*)", "destination": "/index.html" },
-    { "source": "/favicon.ico", "destination": "/favicon.ico" }
-  ],
-
-  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/(.*)", "dest": "/index.html", "status": 200 }
+  ]
 }

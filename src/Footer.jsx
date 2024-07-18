@@ -43,8 +43,6 @@ const Footer = () => {
             발이 편한 축구화를 찾는 분들을 위해 제작되었습니다.
             <br />
             사용 후 가능하시다면 피드백 부탁드립니다.
-            <br />
-            축구화 리뷰 기능 준비 중입니다.
           </p>
           <p></p>
           <button onClick={toggleAboutModal}>Close</button>

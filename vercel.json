@@ -1,5 +1,6 @@
 {
   "cleanUrls": true,
+
   "rewrites": [
     { "source": "/robots.txt", "destination": "/robots.txt" },
     {
@@ -11,6 +12,9 @@
       "destination": "/sitemap.xml"
     },
     { "source": "/(.*)", "destination": "/index.html" },
-    { "source": "/favicon.ico", "destination": "/favicon.ico" }
+    { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    {
+      "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
+    }
   ]
 }

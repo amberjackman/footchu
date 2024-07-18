@@ -1,9 +1,10 @@
 // Footer.jsx
 import React, { useState } from "react";
 import Modal from "./Modal";
-import "./Modal.css";
 import "./Footer.css";
 import { shoes } from "./data";
+import { Carousel } from "react-bootstrap";
+import "./custom.scss";
 
 const Footer = () => {
   const [showAbout, setShowAbout] = useState(false);
@@ -28,7 +29,7 @@ const Footer = () => {
       <div>문의사항, 수정사항 🙏 footchu.contact@gmail.com</div>
       <a
         onClick={() => window.open("https://naver.me/xEAuswq8", "_blank")}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", color: "blue" }}
       >
         피드백 남기기
       </a>
@@ -37,7 +38,14 @@ const Footer = () => {
       <Modal show={showAbout}>
         <div>
           <h2>About</h2>
-          <h3>ABOUT</h3>
+          <p>
+            {" "}
+            발이 편한 축구화를 찾는 분들을 위해 제작되었습니다.
+            <br />
+            사용 후 가능하시다면 피드백 부탁드립니다.
+            <br />
+            축구화 리뷰 기능 준비 중입니다.
+          </p>
           <p></p>
           <button onClick={toggleAboutModal}>Close</button>
         </div>
@@ -47,10 +55,28 @@ const Footer = () => {
       <Modal show={showNotice}>
         <div className="noticeContainer">
           <h2>Notice</h2>
-          <h3>현재 확인할 수 있는 축구화 목록</h3>
-          {sortedshoeNames.map((name, index) => (
-            <p key={index}>{name}</p>
-          ))}
+          <Carousel
+            wrap={true}
+            pause="hover"
+            keyboard={true}
+            controls={false}
+            indicators={true}
+            touch={true}
+          >
+            <Carousel.Item>
+              <h5>24/7/18</h5>
+
+              <p>1. 전체적인 가시성을 업데이트 하였습니다</p>
+              <p>
+                2. 상단 LIST를 통해 확인할 수 있는 축구화 목록을 생성하였습니다
+              </p>
+              <p>3. 리뷰 기능 준비 중에 있습니다</p>
+            </Carousel.Item>
+            <Carousel.Item>
+              <h3>페이지2</h3>
+            </Carousel.Item>
+          </Carousel>
+
           <button onClick={toggleNoticeModal}>Close</button>
         </div>
       </Modal>

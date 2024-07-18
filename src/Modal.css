@@ -21,4 +21,5 @@
   max-height: 80%;
   overflow-y: auto;
   text-align: center;
+  z-index: 1001;
 }

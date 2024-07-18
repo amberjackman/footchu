@@ -1,6 +1,3 @@
-// src/data.js
-
-// 축구화 데이터
 export const shoes = [
   {
     // 아디다스
@@ -105,7 +102,7 @@ export const shoes = [
     midwide: "mid",
     midsole: "mid",
     outsole: "soft",
-    link: "/image/tiempo.png",
+    link: "/image/tiempo10.png",
     description:
       "천연가죽을 포기하고 인조가죽을 택했음에도 좋은 착화감과 터치감을 가지고 있습니다, 의외로 너비가 좁아 주의가 필요합니다",
   },

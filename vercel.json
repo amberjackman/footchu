@@ -12,9 +12,8 @@
       "destination": "/sitemap.xml"
     },
     { "source": "/(.*)", "destination": "/index.html" },
-    { "source": "/favicon.ico", "destination": "/favicon.ico" },
-    {
-      "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
-    }
-  ]
+    { "source": "/favicon.ico", "destination": "/favicon.ico" }
+  ],
+
+  "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
 }

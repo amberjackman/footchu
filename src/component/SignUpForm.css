@@ -1,0 +1,55 @@
+/* src/component/SignUpForm.css */
+
+.SignUpFormContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+
+  width: 100%;
+  text-align: center;
+}
+
+.SignUpFormContainer h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.SignUpFormContainer input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.SignUpFormContainer button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.SignUpFormContainer button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.warning {
+  display: block;
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,66 @@
+.review-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.review-list ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px; /* 원하는 최대 너비를 설정할 수 있습니다 */
+}
+
+.review-item {
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-user {
+  font-weight: bold;
+}
+
+.review-comment {
+  margin: 5px 0;
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.review-actions a {
+  color: rgb(179, 179, 179);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.review-actions a:hover {
+  color: black;
+}
+
+.star-display {
+  display: flex;
+  align-items: center;
+}
+
+.filled-star {
+  color: gold;
+  font-size: 1.2em;
+}
+
+.empty-star {
+  color: lightgray;
+  font-size: 1.2em;
+}

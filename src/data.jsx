@@ -1,3 +1,5 @@
+import supabase from "./supabaseClient";
+
 export const shoes = [
   {
     // 아디다스
@@ -172,7 +174,7 @@ export const shoes = [
       "24년 6월 새로운 모델이 발매되면서, 기존의 악명높던 ㄱㄴ스터드가 사라졌습니다. 캥거루 가죽을 사용했으며 가볍고 핏한 축구화 입니다.",
   },
   {
-    id: 8,
+    id: 18,
     name: "Kelme 1.1",
     brand: "ETC",
     type: "Comport",
@@ -277,6 +279,50 @@ export const shoes = [
     description:
       "AG+TF라는 특이한 스터드와 발 전체에 깔린 쿠션이 특징입니다. 천연 가죽,인조 가죽, 낮은 미드솔,높은 미드솔 등 여러 바리에이션이 존재하므로 확인 후 구매를 추천드립니다 ",
   },
+  {
+    id: 19,
+    name: "Puma Ultra 5",
+    brand: "Puma",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "front",
+    frontwide: "wide",
+    midwide: "mid",
+    midsole: "mid",
+    outsole: "hard",
+    link: "/image/bs.png",
+    description:
+      "어퍼는 단단하지만 기존의 울트라보다 핏이 편안해졌습니다. 전족부가 넓다면 경량모델 중 가장 추천합니다",
+  },
+  {
+    id: 20,
+    name: "Adidas F50",
+    brand: "Adidas",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "mid",
+    frontwide: "mid",
+    midwide: "mid",
+    midsole: "soft",
+    outsole: "mid",
+    link: "/image/bs.png",
+    description: " ",
+  },
+  {
+    id: 21,
+    name: "Nike Mercurial Vapor 16",
+    brand: "Nike",
+    type: "Speed",
+    material: "Synthetic leather",
+    wide_position: "front",
+    frontwide: "wide",
+    midwide: "wide",
+    midsole: "mid",
+    outsole: "soft",
+    link: "/image/bs.png",
+    description:
+      "인조 가죽으로 다시 돌아온 베이퍼 16입니다. 두툼한 가죽과 편안한 핏으로 변경되었습니다 ",
+  },
 ];
 
 // 질문 데이터
@@ -331,3 +377,39 @@ export const advancedQuestions = [
     key: "outsole",
   },
 ];
+
+export default async function uploadShoesData(data) {
+  const { data: result, error } = await supabase.from("shoes").insert(shoes);
+
+  if (error) {
+    // console.error("Error uploading data:", error);
+  } else {
+    // console.log("Data uploaded successfully:", result);
+  }
+}
+
+// uploadShoesData(shoes);
+
+// Function to update data
+async function updateShoeData(id, updatedData) {
+  const { data, error } = await supabase
+    .from("shoes")
+    .update(updatedData)
+    .eq("id", id);
+
+  if (error) {
+    // console.error("Error updating data:", error);
+  } else {
+    // console.log("Data updated successfully:", data);
+  }
+}
+
+async function deleteShoeData(id) {
+  const { data, error } = await supabase.from("shoes").delete().eq("id", id);
+
+  if (error) {
+    // console.error("Error deleting data:", error);
+  } else {
+    // console.log("Data deleted successfully:", data);
+  }
+}

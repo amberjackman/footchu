@@ -1,4 +1,3 @@
-// Footer.jsx
 import React, { useState } from "react";
 import Modal from "./Modal";
 import "./Footer.css";
@@ -65,10 +64,8 @@ const Footer = () => {
               <h5>24 / 08 / 06</h5>
               <p>회원가입이 생겼어요.</p>
               <p>List의 목록에서 리뷰를 작성할 수 있습니다!</p>
-              <p>
-                24년 신제품들은 아직 평가가 확실치 않아 업로드 하지 못 했습니다.
-              </p>
-              <p>빠른 시일 내에 업로드 하겠습니다</p>
+              <p>ultra5, vapor16, f50 추가되었어요</p>
+              <p>설명은 빠른 시일 내에 업로드 하겠습니다</p>
             </Carousel.Item>
             <Carousel.Item>
               <h5>24/7/18</h5>

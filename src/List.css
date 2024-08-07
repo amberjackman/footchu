@@ -102,7 +102,9 @@
   border-top: 1px solid #ddd;
   align-items: center;
 }
-
+.category-container {
+  margin: 1rem;
+}
 @media screen and (max-width: 767px) {
   .grid {
     display: grid;

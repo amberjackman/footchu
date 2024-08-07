@@ -13,7 +13,7 @@ const Footer = () => {
   const toggleNoticeModal = () => setShowNotice(!showNotice);
 
   const shoeNames = shoes.map((shoe) => shoe.name);
-  const sortedshoeNames = [...shoeNames].sort();
+  // const sortedshoeNames = [...shoeNames].sort();
 
   return (
     <div className="footer-container">

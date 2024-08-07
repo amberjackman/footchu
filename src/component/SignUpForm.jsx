@@ -42,6 +42,10 @@ const SignUpForm = () => {
       <h2>회원가입</h2>
       <span className="warning">
         가입하지 않아도 모든 기능은 자유롭게 이용하실 수 있습니다
+        <br />
+        비밀번호는 암호화되어 저장되므로 운영자도 확인할 수 없습니다
+        <br />
+        인증이 필요하므로 사용 가능한 이메일을 입력해주세요
       </span>
       <form onSubmit={handleSignUp}>
         <input

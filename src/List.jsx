@@ -12,13 +12,18 @@ const List = () => {
   const [shoes, setShoes] = useState([]);
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
+  const [material, setMaterial] = useState("All");
 
   const filteredShoes = shoes.filter((shoe) => {
     const categoryMatch =
       category === "All" || shoe.type.toLowerCase() === category.toLowerCase();
     const brandMatch =
       brand === "All" || shoe.brand.toLowerCase() === brand.toLowerCase();
-    return categoryMatch && brandMatch;
+
+    const materialMatch =
+      material === "All" ||
+      shoe.material.toLowerCase() === material.toLowerCase();
+    return categoryMatch && brandMatch && materialMatch;
   });
 
   const sortedShoes = [...filteredShoes].sort((a, b) =>
@@ -44,6 +49,10 @@ const List = () => {
 
   const handleBrandChange = (e) => {
     setBrand(e.target.value);
+  };
+
+  const handleMaterialChange = (e) => {
+    setMaterial(e.target.value);
   };
 
   const toggleReviews = () => {
@@ -109,9 +118,9 @@ const List = () => {
             onChange={handleCategoryChange}
           >
             <option value="All">All</option>
-            <option value="Speed">Speed</option>
-            <option value="Control">Control</option>
-            <option value="Comport">Comport</option>
+            <option value="Speed">스피드</option>
+            <option value="Control">컨트롤</option>
+            <option value="Comport">착화감</option>
           </select>
           <br />
           <label htmlFor="category">브랜드: </label>
@@ -122,6 +131,18 @@ const List = () => {
             <option value="Mizuno">Mizuno</option>
             <option value="Puma">Puma</option>
             <option value="ETC">ETC</option>
+          </select>
+          <br />
+          <label htmlFor="category">소재: </label>
+          <select
+            id="material"
+            value={material}
+            onChange={handleMaterialChange}
+          >
+            <option value="All">All</option>
+            <option value="Real leather">천연가죽</option>
+            <option value="Synthetic leather">인조가죽</option>
+            <option value="Knit">니트</option>
           </select>
         </div>
       </div>

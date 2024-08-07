@@ -62,6 +62,15 @@ const Footer = () => {
             touch={true}
           >
             <Carousel.Item>
+              <h5>24 / 08 / 06</h5>
+              <p>회원가입이 생겼어요.</p>
+              <p>List의 목록에서 리뷰를 작성할 수 있습니다!</p>
+              <p>
+                24년 신제품들은 아직 평가가 확실치 않아 업로드 하지 못 했습니다.
+              </p>
+              <p>빠른 시일 내에 업로드 하겠습니다</p>
+            </Carousel.Item>
+            <Carousel.Item>
               <h5>24/7/18</h5>
 
               <p>1. 전체적인 가시성을 업데이트 하였습니다</p>
@@ -69,9 +78,6 @@ const Footer = () => {
                 2. 상단 LIST를 통해 확인할 수 있는 축구화 목록을 생성하였습니다
               </p>
               <p>3. 리뷰 기능 준비 중에 있습니다</p>
-            </Carousel.Item>
-            <Carousel.Item>
-              <h3>페이지2</h3>
             </Carousel.Item>
           </Carousel>
 

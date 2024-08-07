@@ -10,13 +10,25 @@ const List = () => {
   const [selectedShoe, setSelectedShoe] = useState(null);
   const [showReviews, setShowReviews] = useState(false);
   const [shoes, setShoes] = useState([]);
+  const [category, setCategory] = useState("All");
+  const [brand, setBrand] = useState("All");
 
-  const sortedShoes = [...shoes].sort((a, b) => a.name.localeCompare(b.name));
+  const filteredShoes = shoes.filter((shoe) => {
+    const categoryMatch =
+      category === "All" || shoe.type.toLowerCase() === category.toLowerCase();
+    const brandMatch =
+      brand === "All" || shoe.brand.toLowerCase() === brand.toLowerCase();
+    return categoryMatch && brandMatch;
+  });
+
+  const sortedShoes = [...filteredShoes].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   const fetchShoesData = async () => {
     const { data, error } = await supabase.from("shoes").select("*");
     if (error) {
-      // console.error("Error fetching data:", error);
+      console.error("Error fetching data:", error);
     } else {
       setShoes(data);
     }
@@ -25,6 +37,14 @@ const List = () => {
   useEffect(() => {
     fetchShoesData();
   }, []);
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleBrandChange = (e) => {
+    setBrand(e.target.value);
+  };
 
   const toggleReviews = () => {
     setShowReviews(!showReviews);
@@ -42,8 +62,10 @@ const List = () => {
   };
 
   const handleReviewAdded = () => {
-    setShowReviews(true);
-    setSelectedShoe((prevShoe) => ({ ...prevShoe }));
+    setShowReviews(!showReviews);
+    setTimeout(() => {
+      setShowReviews(!showReviews);
+    }, 100);
   };
 
   const keyToKorean = {
@@ -78,6 +100,31 @@ const List = () => {
 
   return (
     <div className="list-container">
+      <div className="category-container">
+        <div className="category-filter">
+          <label htmlFor="category">카테고리: </label>
+          <select
+            id="category"
+            value={category}
+            onChange={handleCategoryChange}
+          >
+            <option value="All">All</option>
+            <option value="Speed">Speed</option>
+            <option value="Control">Control</option>
+            <option value="Comport">Comport</option>
+          </select>
+          <br />
+          <label htmlFor="category">브랜드: </label>
+          <select id="brand" value={brand} onChange={handleBrandChange}>
+            <option value="All">All</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Nike">Nike</option>
+            <option value="Mizuno">Mizuno</option>
+            <option value="Puma">Puma</option>
+            <option value="ETC">ETC</option>
+          </select>
+        </div>
+      </div>
       <div className="grid">
         {sortedShoes.map((shoe) => (
           <div

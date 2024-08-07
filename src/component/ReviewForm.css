@@ -4,6 +4,11 @@
   align-items: center;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .review-form-container {
+    width: 120%;
+  }
+}
 
 .review-form {
   display: flex;

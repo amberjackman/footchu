@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import supabase from "../supabaseClient";
+import { useDispatch } from "react-redux";
+import { setSession } from "../store/userSlice";
 import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [success, setSuccess] = useState(null);
+  const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
 
   const handleSocialSignUp = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
@@ -21,19 +27,31 @@ const SignUpForm = () => {
 
   const handleSignUp = async (event) => {
     event.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("비밀번호가 일치하지 않습니다.");
+      setSuccess(null);
+      return;
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: {
+          displayName,
+        },
+      },
     });
 
     if (error) {
-      // console.error("Sign up error:", error);
       setError(error.message);
       setSuccess(null);
     } else {
-      // console.log("Sign up success:", data);
       setSuccess("회원가입이 성공적으로 완료되었습니다!");
       setError(null);
+      const { data: sessionData } = await supabase.auth.getSession();
+      dispatch(setSession(sessionData));
     }
   };
 
@@ -62,9 +80,30 @@ const SignUpForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <input
+          type="password"
+          placeholder="비밀번호 확인"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="사용할 닉네임"
+          value={displayName}
+          onChange={(e) => setDisplayName(e.target.value)}
+          required
+        />
         <button type="submit">회원가입</button>
       </form>
-      <button onClick={handleSocialSignUp}>구글 로그인</button>
+      <button className="google-signup-button" onClick={handleSocialSignUp}>
+        <img
+          src="./image/google_logo.png"
+          alt="Google logo"
+          className="google-logo"
+        />
+        구글 회원가입
+      </button>
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
     </div>

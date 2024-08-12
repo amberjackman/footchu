@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import supabase from "../supabaseClient";
 import { getAnonymousUserId } from "./Utils";
 import "./ReviewList.css";
+import ReviewForm from "./ReviewForm";
 
 const ReviewList = ({ shoeId }) => {
   const [reviews, setReviews] = useState([]);

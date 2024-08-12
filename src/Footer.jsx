@@ -33,7 +33,6 @@ const Footer = () => {
         피드백 남기기
       </a>
 
-      {/* About Modal */}
       <Modal show={showAbout}>
         <div>
           <h2>About</h2>
@@ -61,15 +60,15 @@ const Footer = () => {
             touch={true}
           >
             <Carousel.Item>
-              <h5>24 / 08 / 06</h5>
-              <p>회원가입이 생겼어요.</p>
-              <p>List의 목록에서 리뷰를 작성할 수 있습니다!</p>
-              <p>ultra5, vapor16, f50 추가되었어요</p>
-              <p>설명은 빠른 시일 내에 업로드 하겠습니다</p>
+              <h5>24 / 08 / 07</h5>
+              <p>회원가입이 생겼습니다.</p>
+              <p>이제 List의 목록에서 리뷰를 작성할 수 있습니다</p>
+              <p>List에서 카테고리별로 검색할 수 있습니다</p>
+              <p>ultra5, vapor16, f50 추가되었습니다</p>
+              <p>설명 빠른 시일 내에 업로드 하겠습니다</p>
             </Carousel.Item>
             <Carousel.Item>
               <h5>24/7/18</h5>
-
               <p>1. 전체적인 가시성을 업데이트 하였습니다</p>
               <p>
                 2. 상단 LIST를 통해 확인할 수 있는 축구화 목록을 생성하였습니다

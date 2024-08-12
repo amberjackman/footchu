@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "./Modal.jsx";
 import ReviewList from "./component/ReviewList";
-import ReviewForm from "./component/ReviewForm";
+import ReviewForm from "./component/ReviewForm.jsx";
 import supabase from "./supabaseClient.jsx";
 import "./List.css";
 
@@ -13,22 +13,20 @@ const List = () => {
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
   const [material, setMaterial] = useState("All");
+  const [reviewCounts, setReviewCounts] = useState({});
 
-  const filteredShoes = shoes.filter((shoe) => {
-    const categoryMatch =
-      category === "All" || shoe.type.toLowerCase() === category.toLowerCase();
-    const brandMatch =
-      brand === "All" || shoe.brand.toLowerCase() === brand.toLowerCase();
+  const fetchReviewCount = async (shoeId) => {
+    const { count, error } = await supabase
+      .from("reviews")
+      .select("id", { count: "exact" })
+      .eq("shoe_id", shoeId);
 
-    const materialMatch =
-      material === "All" ||
-      shoe.material.toLowerCase() === material.toLowerCase();
-    return categoryMatch && brandMatch && materialMatch;
-  });
-
-  const sortedShoes = [...filteredShoes].sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+    if (error) {
+      console.error("Error fetching review count:", error);
+      return 0;
+    }
+    return count;
+  };
 
   const fetchShoesData = async () => {
     const { data, error } = await supabase.from("shoes").select("*");
@@ -36,6 +34,13 @@ const List = () => {
       console.error("Error fetching data:", error);
     } else {
       setShoes(data);
+
+      // 리뷰 개수를 가져와서 reviewCounts에 저장
+      const counts = {};
+      for (const shoe of data) {
+        counts[shoe.id] = await fetchReviewCount(shoe.id);
+      }
+      setReviewCounts(counts);
     }
   };
 
@@ -43,16 +48,16 @@ const List = () => {
     fetchShoesData();
   }, []);
 
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
+  const handleCategoryChange = (category) => {
+    setCategory(category);
   };
 
-  const handleBrandChange = (e) => {
-    setBrand(e.target.value);
+  const handleBrandChange = (brand) => {
+    setBrand(brand);
   };
 
-  const handleMaterialChange = (e) => {
-    setMaterial(e.target.value);
+  const handleMaterialChange = (material) => {
+    setMaterial(material);
   };
 
   const toggleReviews = () => {
@@ -71,11 +76,29 @@ const List = () => {
   };
 
   const handleReviewAdded = () => {
+    alert("리뷰가 성공적으로 추가되었습니다!");
+
     setShowReviews(!showReviews);
+
     setTimeout(() => {
       setShowReviews(!showReviews);
     }, 100);
   };
+
+  const filteredShoes = shoes.filter((shoe) => {
+    const categoryMatch =
+      category === "All" || shoe.type.toLowerCase() === category.toLowerCase();
+    const brandMatch =
+      brand === "All" || shoe.brand.toLowerCase() === brand.toLowerCase();
+    const materialMatch =
+      material === "All" ||
+      shoe.material.toLowerCase() === material.toLowerCase();
+    return categoryMatch && brandMatch && materialMatch;
+  });
+
+  const sortedShoes = [...filteredShoes].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   const keyToKorean = {
     type: "컨셉",
@@ -110,40 +133,43 @@ const List = () => {
   return (
     <div className="list-container">
       <div className="category-container">
-        <div className="category-filter">
-          <label htmlFor="category">카테고리: </label>
-          <select
-            id="category"
-            value={category}
-            onChange={handleCategoryChange}
-          >
-            <option value="All">All</option>
-            <option value="Speed">스피드</option>
-            <option value="Control">컨트롤</option>
-            <option value="Comport">착화감</option>
-          </select>
-          <br />
-          <label htmlFor="category">브랜드: </label>
-          <select id="brand" value={brand} onChange={handleBrandChange}>
-            <option value="All">All</option>
-            <option value="Adidas">Adidas</option>
-            <option value="Nike">Nike</option>
-            <option value="Mizuno">Mizuno</option>
-            <option value="Puma">Puma</option>
-            <option value="ETC">ETC</option>
-          </select>
-          <br />
-          <label htmlFor="category">소재: </label>
-          <select
-            id="material"
-            value={material}
-            onChange={handleMaterialChange}
-          >
-            <option value="All">All</option>
-            <option value="Real leather">천연가죽</option>
-            <option value="Synthetic leather">인조가죽</option>
-            <option value="Knit">니트</option>
-          </select>
+        <div className="button-group">
+          <label>카테고리: </label>
+          {["All", "Speed", "Control", "Comport"].map((item) => (
+            <button
+              key={item}
+              className={category === item ? "active" : ""}
+              onClick={() => handleCategoryChange(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <div className="button-group">
+          <label>브랜드: </label>
+          {["All", "Adidas", "Nike", "Mizuno", "Puma", "ETC"].map((item) => (
+            <button
+              key={item}
+              className={brand === item ? "active" : ""}
+              onClick={() => handleBrandChange(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <div className="button-group">
+          <label>소재: </label>
+          {["All", "Real leather", "Synthetic leather", "Knit"].map((item) => (
+            <button
+              key={item}
+              className={material === item ? "active" : ""}
+              onClick={() => handleMaterialChange(item)}
+            >
+              {item}
+            </button>
+          ))}
         </div>
       </div>
       <div className="grid">
@@ -175,11 +201,16 @@ const List = () => {
                 ))}
             </ul>
             <button className="toggle-reviews-btn" onClick={toggleReviews}>
-              {showReviews ? "리뷰 숨기기" : "리뷰 보기"}
+              {showReviews
+                ? "리뷰 숨기기"
+                : `리뷰 보기 (${reviewCounts[selectedShoe.id] || 0})`}
             </button>
             {showReviews && (
               <div className="reviews-section">
-                <ReviewList shoeId={selectedShoe.id} />
+                <ReviewList
+                  shoeId={selectedShoe.id}
+                  onReviewAdded={handleReviewAdded}
+                />
                 <ReviewForm
                   shoeId={selectedShoe.id}
                   onReviewAdded={handleReviewAdded}

@@ -1,0 +1,13 @@
+@import "node_modules/bootstrap/scss/bootstrap-reboot";
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+@import "node_modules/bootstrap/scss/bootstrap-utilities";
+@import "node_modules/bootstrap/scss/_carousel";
+
+.carousel-indicators > button[aria-current="false"] {
+  background-color: #999999 !important;
+}
+
+/* 활성화된 인디케이터 색상 */
+.carousel-indicators > button[aria-current="true"] {
+  background-color: orange !important;
+}

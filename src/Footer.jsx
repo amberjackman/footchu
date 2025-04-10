@@ -60,6 +60,11 @@ const Footer = () => {
             touch={true}
           >
             <Carousel.Item>
+              <h5>25 / 04 / 10</h5>
+              <p>Vapor16, Ultra5, F50</p>
+              <p>사진이 표기되지 않던 오류를 수정하였습니다.</p>
+            </Carousel.Item>
+            <Carousel.Item>
               <h5>24 / 08 / 07</h5>
               <p>회원가입이 생겼습니다.</p>
               <p>이제 List의 목록에서 리뷰를 작성할 수 있습니다</p>
@@ -76,7 +81,6 @@ const Footer = () => {
               <p>3. 리뷰 기능 준비 중에 있습니다</p>
             </Carousel.Item>
           </Carousel>
-
           <button onClick={toggleNoticeModal}>Close</button>
         </div>
       </Modal>

@@ -195,8 +195,8 @@ function Home({ shoe }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "2024년 축구화 추천",
-    description: "2024년 축구화를 다양한 기준으로 비교하고 추천합니다.",
+    name: "2025년 축구화 추천",
+    description: "2025년 축구화를 다양한 기준으로 비교하고 추천합니다.",
     author: {
       "@type": "Person",
     },
@@ -232,7 +232,7 @@ function Home({ shoe }) {
 
   if (!isQuizStarted) {
     <Seo
-      title="2024년 최고의 축구화 추천"
+      title="2025년 최고의 축구화 추천"
       description="축구화를 다양한 기준으로 추천합니다."
       jsonLd={jsonLd}
     />;

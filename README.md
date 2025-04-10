@@ -16,6 +16,9 @@
 - **기타**: Vercel, Google Search Console, Vercel Analytics, Naver Search Advisor
 
 ## 🚀 업데이트 내역
+- **25/04/10**
+  - Vapor16, Ultra5, F50
+  - 사진이 표기되지 않던 오류 수정
 
 - **24/08/12**
   - 리뷰 및 별점 기능 추가

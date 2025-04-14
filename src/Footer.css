@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+
 }
 
 .footer-inner-container {
@@ -19,6 +20,8 @@
 }
 
 .footer-inner-container > div {
+  align-items: center;
+  justify-content: center;
   margin: 3px;
   color: #666666;
 }

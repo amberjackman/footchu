@@ -237,57 +237,67 @@ function Home({ shoe }) {
       jsonLd={jsonLd}
     />;
     return (
-      <div className="App landing">
-        {/* <div className="title-container">
-          <h1>축구화 추천은 FOOTCHU</h1>
-        </div> */}
-        {/* <div className="logoContainer">
-          <img
-            src="/image/footchu_landing_logo_ver2.png"
-            onClick={handleLogoClick}
-            style={{ cursor: "pointer" }}
-          ></img>
-        </div> */}
-
-        <div className="mainContainer">
-          <strong>⚠️TF모델을 기본으로 상정합니다⚠️</strong>
-          TF모델과 스터드모델의 큰 차이가 있을 경우 <br />
-          결과창의 설명란에서 확인하실 수 있습니다
-          <br />
-          또는 추천 모델이 TF모델이 아닌 경우 모델명에 표기됩니다
-          <br />
-          <span>
-            상세한 요구사항이 있는 경우에는 ADVANCED MODE🔥 를 추천합니다
-          </span>
-          <div className="toggle-container">
-            <label className="toggle-label">
-              <strong>ADVANCED MODE</strong>
-              <input
-                type="checkbox"
-                // disabled={true}
-                // cursor="disable"
-                checked={isAdvancedMode}
-                onClick={toggleAdvancedMode}
-                onChange={() => setIsAdvancedMode(!isAdvancedMode)}
-                className="toggle-checkbox"
-              />
-              <span className="toggle-switch"> </span>
-            </label>
-          </div>
+      <div className="landing-container"> {/* Outer Flex/Grid container */}
+  
+        {/* Left Banner */}
+        <div className="banner-container banner-left">
+          {/* 4 items inside the banner */}
+          <div className="banner-item">칸 1</div>
+          <div className="banner-item">칸 2</div>
+          <div className="banner-item">칸 3</div>
+          <div className="banner-item">칸 4</div>
         </div>
-
-        <button
-          onClick={handleStartQuiz}
-          className={`start-button ${isAdvancedMode ? "advanced-mode" : ""} ${
-            isShaking ? "shake" : ""
-          }`}
-        >
-          {isAdvancedMode ? "🔥" : ""}
-          추천받기
-          {isAdvancedMode ? "🔥" : ""}
-        </button>
-
-        <Footer />
+  
+        {/* Main Content Area */}
+        <div className="App landing">
+          <div className="mainContainer">
+            <strong>⚠️TF모델을 기본으로 상정합니다⚠️</strong>
+            TF모델과 스터드모델의 큰 차이가 있을 경우 <br />
+            결과창의 설명란에서 확인하실 수 있습니다
+            <br />
+            또는 추천 모델이 TF모델이 아닌 경우 모델명에 표기됩니다
+            <br />
+            <span>
+              상세한 요구사항이 있는 경우에는 ADVANCED MODE🔥 를 추천합니다
+            </span>
+            <div className="toggle-container">
+              <label className="toggle-label">
+                <strong>ADVANCED MODE</strong>
+                <input
+                  type="checkbox"
+                  checked={isAdvancedMode}
+                  onClick={toggleAdvancedMode} // Usually only onChange is needed for controlled components
+                  onChange={() => setIsAdvancedMode(!isAdvancedMode)} // Correct way for checkbox
+                  className="toggle-checkbox"
+                />
+                <span className="toggle-switch"></span>
+              </label>
+            </div>
+          </div>
+  
+          <button
+            onClick={handleStartQuiz}
+            className={`start-button ${isAdvancedMode ? "advanced-mode" : ""} ${
+              isShaking ? "shake" : ""
+            }`}
+          >
+            {isAdvancedMode ? "🔥" : ""}
+            추천받기
+            {isAdvancedMode ? "🔥" : ""}
+          </button>
+  
+          {/* <Footer /> */}
+        </div>
+  
+        {/* Right Banner */}
+        <div className="banner-container banner-right">
+           {/* 4 items inside the banner */}
+           <div className="banner-item">칸 5</div>
+           <div className="banner-item">칸 6</div>
+           <div className="banner-item">칸 7</div>
+           <div className="banner-item">칸 8</div>
+        </div>
+  
       </div>
     );
   }

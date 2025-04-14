@@ -1,13 +1,100 @@
 /* src/App.css */
+
 .App {
+  width: 100%;
   font-family: "GmarketSansMedium", sans-serif;
+  font-size: rem;
   color: #666666;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 70vh;
+  min-height:0;
   padding-bottom: 20px;
+  margin: 0 0rem;
+}
+
+/* Landing Layout */
+.landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap);
+  min-height: 50vh;
+  gap: var(--gap);
+}
+
+.banner-container {
+
+  min-width:200px;
+  height: 80vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.banner-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid blue;
+  margin-bottom: 8px;
+  text-align: center;
+  height: 24%;
+}
+.banner-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Layouts */
+@media (min-width: 600px) {
+  .banner-container {
+    flex: 0 0 var(--banner-width);
+  }
+  .App.landing {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 599px) {
+  .landing-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .banner-container {
+    flex-basis: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    height: auto; /* 기존 height: 100% 제거 */
+  }
+
+  .banner-item {
+    height: 60px; /* 고정 높이로 명확하게 설정 */
+    margin-bottom: 10px;
+  }
+
+  .banner-left {
+    order: 1;
+  }
+
+  .App.landing {
+    order: 2;
+  }
+
+  .banner-right {
+    order: 3;
+  }
+}
+
+
+/* Common Layout Components */
+.landing > div {
+  display: flex;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
 }
 
 .landing > ul {
@@ -18,7 +105,6 @@
   font-size: 10px;
   color: #666666;
 }
-
 .title-container > h1 {
   color: white;
 }
@@ -27,7 +113,11 @@
   display: flex;
   margin-bottom: 3rem;
 }
+
 .mainContainer {
+  max-width: 800px;
+  width: 100%; /* 전체 너비 차지하도록 설정 */
+  margin: 0 auto; /* 좌우 중앙 정렬 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,6 +125,8 @@
   text-align: center;
 }
 
+
+/* Quiz Card */
 .question-card {
   width: 350px;
   border: 1px solid #ddd;
@@ -63,6 +155,7 @@
   transition: all 0.2s ease;
 }
 
+/* Recommendations */
 .recommendations {
   display: flex;
   flex-direction: column;
@@ -86,7 +179,6 @@
   padding: 20px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* overflow: hidden;  */
 }
 
 .recommendation::before {
@@ -111,7 +203,6 @@
   color: transparent;
   transition: color 0.3s ease;
 }
-
 .recommendation:hover > div {
   color: white;
 }
@@ -120,6 +211,7 @@
   list-style: none;
 }
 
+/* Buttons */
 button {
   margin-top: 10px;
   padding: 10px 20px;
@@ -135,14 +227,13 @@ button:hover {
   background-color: #218838;
 }
 
-/* 토글 스위치 전체 컨테이너 스타일 */
+/* Toggle Switch */
 .toggle-container {
   display: flex;
   align-items: center;
   margin: 20px 0;
 }
 
-/* 토글 라벨 스타일 */
 .toggle-label {
   display: flex;
   align-items: center;
@@ -150,14 +241,12 @@ button:hover {
   cursor: pointer;
 }
 
-/* 실제 토글 스위치 체크박스 (화면에서 숨김) */
 .toggle-checkbox {
   height: 0;
   width: 0;
   visibility: hidden;
 }
 
-/* 토글 슬라이더 기본 스타일 */
 .toggle-switch {
   cursor: pointer;
   display: inline-block;
@@ -170,7 +259,6 @@ button:hover {
   margin-left: 10px;
 }
 
-/* 토글 슬라이더 내부 원 스타일 */
 .toggle-switch::before {
   content: "";
   position: absolute;
@@ -184,16 +272,15 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
 }
 
-/* 체크되었을 때의 스타일 (토글 ON) */
 .toggle-checkbox:checked + .toggle-switch {
   background-color: #4caf50;
 }
 
-/* 체크되었을 때 원의 위치 변경 (토글 ON) */
 .toggle-checkbox:checked + .toggle-switch::before {
   transform: translateX(26px);
 }
 
+/* Button Group */
 .btn-group {
   margin: auto;
   display: flex;
@@ -203,315 +290,8 @@ button:hover {
 .btn-group > button {
   width: 10rem;
 }
-/* 스타트 버튼 스타일 */
+
+/* Start Button */
 .start-button {
   background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: transform 0.7s;
-}
-
-.start-button:hover {
-  background-color: #45a049;
-}
-
-.start-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-
-  transition: background-color 0.3s, width 0.3s, height 0.3s ease;
-}
-
-.start-button:hover {
-  background-color: #45a049;
-}
-
-.backbuttoncontainer {
-  display: flex;
-  justify-content: center;
-}
-.back-button {
-  background-color: #ffcc66;
-  text-align: center;
-  display: flex;
-  padding: auto;
-  width: 7rem;
-}
-
-.back-button:hover {
-  background-color: #e6b800;
-}
-
-/* Advanced 모드일 때의 스타트 버튼 스타일 */
-.advanced-mode {
-  background-color: #1190cc;
-}
-
-.advanced-mode:hover {
-  background-color: #0b7dda;
-}
-
-/* 토글 스위치 스타일 */
-.toggle-container {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.toggle-label {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.toggle-checkbox {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-.toggle-switch {
-  cursor: pointer;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  background-color: #ccc;
-  border-radius: 100px;
-  position: relative;
-  transition: background-color 0.2s;
-  margin-left: 10px;
-}
-
-.toggle-switch::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 45px;
-  transition: 0.2s;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
-}
-
-.toggle-checkbox:checked + .toggle-switch {
-  background-color: #1190cc;
-}
-
-.toggle-checkbox:checked + .toggle-switch::before {
-  transform: translateX(26px);
-}
-
-.question-card {
-  margin: 20px;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
-}
-
-.question-card:hover {
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-}
-
-.option-card {
-  padding: 10px 20px;
-  margin: 5px 0;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.option-card:hover {
-  background-color: #e0e0e0;
-  transform: translateY(-2px);
-}
-
-.option-card.selected {
-  background-color: #e0e0e0; /* 선택된 옵션 색상 변경 */
-  color: #333;
-  font-weight: bold;
-}
-
-/* 전체 페이지 기본 스타일 */
-body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  background-color: #f7f7f7;
-}
-
-/* App 컨테이너 스타일 */
-.App {
-  text-align: center;
-  padding: 1rem;
-}
-
-/* 제목 텍스트 스타일 */
-h1 {
-  color: #333;
-}
-
-/* 퀴즈 질문 카드 스타일 */
-.question-card {
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 600px;
-}
-
-/* 옵션 카드 스타일 */
-.option-card {
-  padding: 10px 20px;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 5px;
-  background-color: #00000016;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.option-card:hover {
-  background-color: rgba(0, 0, 0, 0.358);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.option-card:active {
-  background-color: f0f0f0;
-}
-
-/* 버튼 기본 스타일 */
-button {
-  background-color: #a9a9a9;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-/* 버튼 호버 스타일 */
-button:hover {
-  background-color: #45a049;
-}
-
-/* Advanced 모드 버튼 스타일 */
-.advanced-mode {
-  background-color: #2196f3; /* Blue */
-}
-
-.advanced-mode:hover {
-  background-color: #0b7dda;
-}
-
-/* 모달 스타일 */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  width: 300px;
-  text-align: center;
-}
-
-.footer-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f9f9f9;
-  padding: 10px;
-  font-size: 0.8rem;
-  color: rgba(128, 128, 128, 0.5);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.footer-container a {
-  margin-left: 10px;
-}
-
-.footerinner-container {
-  width: auto;
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 1rem;
-}
-
-/* 링크 및 기타 요소 스타일 */
-a {
-  color: #2196f3;
-}
-
-ul,
-p {
-  text-align: left;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.shake {
-  animation: shake 0.1s;
-  animation-iteration-count: 1;
-}
+  color: white

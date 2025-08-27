@@ -165,15 +165,6 @@ function Home({ shoe }) {
     handleRestart();
   };
 
-  const toggleAdvancedMode = () => {
-    if (!isAdvancedMode) {
-      setIsShaking((prev) => !prev);
-      setTimeout(() => {
-        setIsShaking(false);
-      }, 500);
-    }
-  };
-
   useEffect(
     () => {
       setCurrentQuestions(isAdvancedMode ? advancedQuestions : questions);
@@ -266,8 +257,16 @@ function Home({ shoe }) {
                 <input
                   type="checkbox"
                   checked={isAdvancedMode}
-                  onClick={toggleAdvancedMode} // Usually only onChange is needed for controlled components
-                  onChange={() => setIsAdvancedMode(!isAdvancedMode)} // Correct way for checkbox
+                  onChange={() => {
+                    const newAdvancedMode = !isAdvancedMode;
+                    setIsAdvancedMode(newAdvancedMode);
+                    if (newAdvancedMode) {
+                      setIsShaking(true);
+                      setTimeout(() => {
+                        setIsShaking(false);
+                      }, 500);
+                    }
+                  }} // Correct way for checkbox
                   className="toggle-checkbox"
                 />
                 <span className="toggle-switch"></span>

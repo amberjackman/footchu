@@ -1,7 +1,4 @@
-@import "node_modules/bootstrap/scss/bootstrap-reboot";
-@import "node_modules/bootstrap/scss/bootstrap-grid";
-@import "node_modules/bootstrap/scss/bootstrap-utilities";
-@import "node_modules/bootstrap/scss/_carousel";
+@use "bootstrap/scss/bootstrap";
 
 .carousel-indicators > button[aria-current="false"] {
   background-color: #999999 !important;

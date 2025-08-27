@@ -2,6 +2,7 @@ import React from "react";
 import "./Modal.css";
 
 const Modal = ({ show, onClose, children }) => {
+  console.log("Modal show prop:", show);
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();

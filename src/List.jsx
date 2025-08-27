@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./Modal.jsx";
-import ReviewList from "./component/ReviewList";
-import ReviewForm from "./component/ReviewForm.jsx";
+import { useNavigate } from "react-router-dom"; // useNavigate 임포트
+// import Modal from "./Modal.jsx"; // Modal 제거
+// import ReviewList from "./component/ReviewList"; // ReviewList 제거
+// import ReviewForm from "./component/ReviewForm.jsx"; // ReviewForm 제거
 import supabase from "./supabaseClient.jsx";
 import "./List.css";
 
 const List = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [selectedShoe, setSelectedShoe] = useState(null);
-  const [showReviews, setShowReviews] = useState(false);
+  // const [showModal, setShowModal] = useState(false); // 제거
+  // const [selectedShoe, setSelectedShoe] = useState(null); // 제거
+  // const [showReviews, setShowReviews] = useState(false); // 제거
   const [shoes, setShoes] = useState([]);
   const [category, setCategory] = useState("All");
   const [brand, setBrand] = useState("All");
   const [material, setMaterial] = useState("All");
   const [reviewCounts, setReviewCounts] = useState({});
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   const fetchReviewCount = async (shoeId) => {
     const { count, error } = await supabase
@@ -60,30 +62,30 @@ const List = () => {
     setMaterial(material);
   };
 
-  const toggleReviews = () => {
-    setShowReviews(!showReviews);
-  };
+  // 불필요한 함수 제거
+  // const toggleReviews = () => {
+  //   setShowReviews(!showReviews);
+  // };
 
-  const handleModal = (shoe) => {
-    setSelectedShoe(shoe);
-    setShowModal(true);
-    setShowReviews(false);
-  };
+  // const handleModal = (shoe) => {
+  //   setSelectedShoe(shoe);
+  //   setShowModal(true);
+  //   console.log("showModal is now:", true);
+  //   setShowReviews(false);
+  // };
 
-  const closeModal = () => {
-    setShowModal(false);
-    setSelectedShoe(null);
-  };
+  // const closeModal = () => {
+  //   setShowModal(false);
+  //   setSelectedShoe(null);
+  // };
 
-  const handleReviewAdded = () => {
-    alert("리뷰가 성공적으로 추가되었습니다!");
-
-    setShowReviews(!showReviews);
-
-    setTimeout(() => {
-      setShowReviews(!showReviews);
-    }, 100);
-  };
+  // const handleReviewAdded = () => {
+  //   alert("리뷰가 성공적으로 추가되었습니다!");
+  //   setShowReviews(!showReviews);
+  //   setTimeout(() => {
+  //     setShowReviews(!showReviews);
+  //   }, 100);
+  // };
 
   const filteredShoes = shoes.filter((shoe) => {
     const categoryMatch =
@@ -177,14 +179,15 @@ const List = () => {
           <div
             className="grid-item"
             key={shoe.id}
-            onClick={() => handleModal(shoe)}
+            onClick={() => navigate(`/shoes/${shoe.id}`)} // 상세 페이지로 이동
           >
             <p className="shoe-name">{shoe.name}</p>
             <img src={shoe.link} alt={shoe.name} className="shoe-image" />
           </div>
         ))}
       </div>
-      <Modal show={showModal}>
+      {/* Modal 및 관련 섹션 제거 */}
+      {/* <Modal show={showModal} onClose={closeModal}>
         {selectedShoe ? (
           <div className="modal-content">
             <h2 className="shoe-title">{selectedShoe.name}</h2>
@@ -224,7 +227,7 @@ const List = () => {
         ) : (
           <p>Loading...</p>
         )}
-      </Modal>
+      </Modal> */}
     </div>
   );
 };
